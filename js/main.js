@@ -415,6 +415,31 @@ function initWordmarkMorph() {
   update();
   requestAnimationFrame(() => { computeAnchors(); update(); });
 
+  const desktopMq = window.matchMedia('(min-width: 1024px)');
+
+  function disableMorph() {
+    morph.style.display = 'none';
+    morph.classList.add('wordmark-morph--settled');
+    navLogo.classList.add('nav__logo--settled');
+  }
+
+  function enableMorph() {
+    morph.style.display = '';
+    morph.classList.remove('wordmark-morph--settled');
+    navLogo.classList.remove('nav__logo--settled');
+    computeAnchors();
+    update();
+  }
+
+  if (!desktopMq.matches) {
+    disableMorph();
+  }
+
+  desktopMq.addEventListener('change', (e) => {
+    if (e.matches) enableMorph();
+    else disableMorph();
+  });
+
   let ticking = false;
   const onScroll = () => {
     if (!ticking) {

@@ -246,9 +246,11 @@ input, textarea { font-family: inherit; }
   color: #000; text-decoration: none;
 }
 .nav__logo svg { width: 100%; height: auto; }
-/* Hide in-bar logo until wordmark morph hands off */
-.nav__logo svg { opacity: 0; transition: opacity .2s ease; }
-.nav__logo.nav__logo--settled svg { opacity: 1; }
+/* Hide in-bar logo until wordmark morph hands off (desktop only) */
+@media (min-width: 1024px) {
+  .nav__logo svg { opacity: 0; transition: opacity .2s ease; }
+  .nav__logo.nav__logo--settled svg { opacity: 1; }
+}
 
 /* Desktop nav links — hidden on mobile */
 .nav__link {
@@ -422,6 +424,10 @@ button.mobile-menu__link { width: 80%; margin-left: auto; text-align: left; }
 }
 .wordmark-morph.wordmark-morph--settled { opacity: 0; }
 .wordmark-morph svg { width: 100%; height: auto; display: block; }
+
+@media (max-width: 1023px) {
+  .wordmark-morph { display: none; }
+}
 
 
 /* ==========================================================================
