@@ -366,6 +366,14 @@ function initWordmarkMorph() {
   const ASPECT = 356 / 1701;
   function lerp(a, b, t) { return a + (b - a) * t; }
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    morph.classList.add('wordmark-morph--settled');
+    morph.style.opacity = '0';
+    navLogo.classList.add('nav__logo--settled');
+    return;
+  }
+
   let startLeft, startTop, startW, endLeft, endTop, endW, scrollRange = 1;
 
   function computeAnchors() {
@@ -389,15 +397,15 @@ function initWordmarkMorph() {
     const left = lerp(startLeft, endLeft, t);
     const top = lerp(startTop, endTop, t);
     const width = lerp(startW, endW, t);
+    const scale = width / startW;
     const [r0, g0, b0] = getPageBgRgb();
     const r = Math.round(lerp(r0, 0, t));
     const g = Math.round(lerp(g0, 0, t));
     const b = Math.round(lerp(b0, 0, t));
 
-    morph.style.position = 'fixed';
-    morph.style.left = `${left}px`;
-    morph.style.top = `${top}px`;
-    morph.style.width = `${width}px`;
+    /* translate3d + scale avoids layout thrash from left/top/width on every scroll frame. */
+    morph.style.width = `${startW}px`;
+    morph.style.transform = `translate3d(${left}px, ${top}px, 0) scale(${scale})`;
     morph.style.color = `rgb(${r},${g},${b})`;
     morph.classList.toggle('wordmark-morph--settled', settled);
     navLogo.classList.toggle('nav__logo--settled', settled);
@@ -408,13 +416,24 @@ function initWordmarkMorph() {
   requestAnimationFrame(() => { computeAnchors(); update(); });
 
   let ticking = false;
-  window.addEventListener('scroll', () => {
+  const onScroll = () => {
     if (!ticking) {
-      requestAnimationFrame(() => { update(); ticking = false; });
       ticking = true;
+      requestAnimationFrame(() => {
+        update();
+        ticking = false;
+      });
     }
-  });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', () => { computeAnchors(); update(); });
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', () => {
+      computeAnchors();
+      update();
+    });
+  }
 }
 
 

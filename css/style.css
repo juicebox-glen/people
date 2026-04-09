@@ -408,11 +408,16 @@ button.mobile-menu__link { width: 80%; margin-left: auto; text-align: left; }
    ========================================================================== */
 .wordmark-morph {
   position: fixed;
+  left: 0;
+  top: 0;
   z-index: var(--z-wordmark);
   pointer-events: none;
   opacity: 1;
   color: var(--page-bg);
+  /* Width set in JS to hero width; motion is translate3d + scale only (GPU layer). */
+  transform-origin: 0 0;
   will-change: transform;
+  backface-visibility: hidden;
   transition: opacity .2s ease;
 }
 .wordmark-morph.wordmark-morph--settled { opacity: 0; }
