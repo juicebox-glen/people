@@ -60,9 +60,6 @@
     <nav class="nav" id="nav" aria-label="Primary">
       <div class="nav__inner">
         <div class="nav__left">
-          <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-            <span></span><span></span>
-          </button>
           <a href="#projects" class="nav__link">Projects</a>
           <button type="button" class="nav__link" data-skeleton-slide="journal" aria-expanded="false" aria-controls="journal-overlay">Journal</button>
         </div>
@@ -79,6 +76,9 @@
         <div class="nav__right">
           <button type="button" class="nav__link" data-skeleton-slide="studio" aria-expanded="false" aria-controls="studio-overlay">Studio</button>
           <a href="#contact" class="nav__link">Contact</a>
+          <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span><span></span>
+          </button>
         </div>
       </div>
     </nav>
@@ -469,24 +469,17 @@
        ============================================================ -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <div class="mobile-menu__glass"></div>
-    <div class="mobile-menu__panel">
-      <div class="mobile-menu__top">
-        <img src="images/PEOPLE-square.svg" alt="PEOPLE" width="30" height="30" loading="lazy">
-        <button type="button" class="mobile-menu__close" aria-label="Close menu">&times;</button>
-      </div>
-      <div class="mobile-menu__links">
-        <a href="#projects" class="mobile-menu__link"><span>01</span> Projects</a>
-        <button type="button" class="mobile-menu__link" data-mobile-slide="journal"><span>02</span> Journal</button>
-        <button type="button" class="mobile-menu__link" data-mobile-slide="studio"><span>03</span> Studio</button>
-        <a href="#contact" class="mobile-menu__link"><span>04</span> Contact</a>
-      </div>
-      <div class="mobile-menu__footer">
-        <div class="mobile-menu__copy">© PEOPLE</div>
-        <div class="mobile-menu__socials">
-          <a href="#" class="mobile-menu__social">LinkedIn</a>
-          <a href="#" class="mobile-menu__social">Instagram</a>
-          <a href="#" class="mobile-menu__social">Twitter</a>
+    <div class="mobile-menu__sheet">
+      <div class="mobile-menu__sheet-inner">
+        <div class="mobile-menu__sheet-head">
+          <button type="button" class="mobile-menu__close" aria-label="Close menu">&times;</button>
         </div>
+        <nav class="mobile-menu__links" aria-label="Primary">
+          <a href="#projects" class="mobile-menu__link"><span class="mobile-menu__num">01</span><span class="mobile-menu__label">Projects</span></a>
+          <button type="button" class="mobile-menu__link" data-mobile-slide="journal"><span class="mobile-menu__num">02</span><span class="mobile-menu__label">Journal</span></button>
+          <button type="button" class="mobile-menu__link" data-mobile-slide="studio"><span class="mobile-menu__num">03</span><span class="mobile-menu__label">Studio</span></button>
+          <a href="#contact" class="mobile-menu__link"><span class="mobile-menu__num">04</span><span class="mobile-menu__label">Contact</span></a>
+        </nav>
       </div>
     </div>
   </div>
