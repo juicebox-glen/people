@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://i.vimeocdn.com">
+  <title>PEOPLE</title>
+  <meta name="description" content="New ways of being.">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/webclip.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Homepage load: overlay visible before JS runs intro sequence */
+    body .page-transition { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       PAGE TRANSITION — Lottie + glass overlay
+       ============================================================ -->
+  <div class="page-transition">
+    <div class="page-transition__content">
+      <div class="page-transition__logo-wrap">
+        <div class="page-transition__lottie" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="page-transition__trigger" aria-hidden="true"></div>
+    <div class="page-transition__glass"></div>
+  </div>
+
+  <!-- ============================================================
+       MAIN CONTENT — sits above footer for reveal effect
+       ============================================================ -->
+  <div class="main-content">
+
+    <!-- HERO -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero__video-wrap hero__video-wrap--skeleton-ph">
+        <div class="skeleton-ph skeleton-ph--hero" aria-hidden="true"></div>
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__tagline">NEW WAYS OF BEING</div>
+    </section>
+
+    <!-- MORPHING WORDMARK (hero → nav) -->
+    <div class="wordmark-morph" id="wordmarkMorph" aria-hidden="true">
+      <svg viewBox="0 0 1701 356" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1477.2 349.523L1477.2 5.73004L1700.19 5.73008L1700.19 42.4968L1581.78 42.4968C1545.49 42.4968 1518.75 65.8938 1518.75 101.228C1518.75 132.742 1541.19 159.004 1571.75 159.004L1681.57 159.004L1681.57 196.249L1571.75 196.249C1540.71 196.249 1518.75 221.078 1518.75 252.592C1518.75 287.927 1545.49 312.756 1581.78 312.756L1700.19 312.756L1700.19 349.523L1477.2 349.523Z" fill="currentColor"/>
+        <path d="M1212.84 349.523L1212.84 5.72998L1254.38 5.72999L1254.38 246.385C1254.38 288.882 1277.78 311.801 1319.8 311.801L1427.24 311.801L1427.24 349.523L1212.84 349.523Z" fill="currentColor"/>
+        <path d="M916.743 349.523L916.743 5.72992L1046.14 5.72994C1115.38 5.72995 1175.54 46.7941 1175.54 128.922C1175.54 212.006 1118.24 254.025 1041.85 254.025L957.808 254.025L957.808 349.523L916.743 349.523ZM1046.62 220.6C1097.23 220.6 1138.3 179.059 1138.3 129.877C1138.3 79.2634 1097.23 38.1993 1046.62 38.1993C996.484 38.1993 958.763 79.7409 958.763 129.877C958.763 179.536 996.484 220.6 1046.62 220.6Z" fill="currentColor"/>
+        <path d="M710.979 355.253C610.706 355.253 537.173 279.809 537.173 177.626C537.173 74.9659 610.706 1.2857e-05 710.979 3.03893e-05C810.774 4.78381e-05 883.83 75.4435 883.83 177.626C883.83 280.287 810.774 355.253 710.979 355.253ZM710.979 313.233C786.9 313.234 842.289 254.98 842.289 177.626C842.289 97.8855 786.422 38.1993 710.979 38.1992C635.058 38.1992 579.192 98.363 579.192 177.626C579.192 255.457 635.058 313.233 710.979 313.233Z" fill="currentColor"/>
+        <path d="M295.622 349.523L295.622 5.72986L518.61 5.7299L518.61 42.4966L400.193 42.4966C363.903 42.4966 337.164 65.8936 337.164 101.228C337.164 132.742 359.606 159.004 390.165 159.004L499.988 159.004L499.988 196.248L390.165 196.248C359.128 196.248 337.164 221.078 337.164 252.592C337.164 287.926 363.903 312.756 400.193 312.756L518.61 312.756L518.61 349.523L295.622 349.523Z" fill="currentColor"/>
+        <path d="M0 349.523L0 5.7298L129.4 5.72982C198.636 5.72983 258.8 46.794 258.8 128.922C258.8 212.006 201.501 254.025 125.102 254.025L41.0642 254.025L41.0641 349.523L0 349.523ZM129.877 220.6C180.491 220.6 221.555 179.059 221.555 129.877C221.555 79.2633 180.491 38.1992 129.877 38.1991C79.7409 38.1991 42.0192 79.7408 42.0192 129.877C42.0191 179.536 79.7409 220.6 129.877 220.6Z" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav" aria-label="Primary">
+      <div class="nav__inner">
+        <div class="nav__left">
+          <button type="button" class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span><span></span>
+          </button>
+          <a href="#projects" class="nav__link">Projects</a>
+          <button type="button" class="nav__link" data-skeleton-slide="journal" aria-expanded="false" aria-controls="journal-overlay">Journal</button>
+        </div>
+        <a href="index.html" class="nav__logo" aria-label="Home">
+          <svg viewBox="0 0 1701 356" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1477.2 349.523L1477.2 5.73004L1700.19 5.73008L1700.19 42.4968L1581.78 42.4968C1545.49 42.4968 1518.75 65.8938 1518.75 101.228C1518.75 132.742 1541.19 159.004 1571.75 159.004L1681.57 159.004L1681.57 196.249L1571.75 196.249C1540.71 196.249 1518.75 221.078 1518.75 252.592C1518.75 287.927 1545.49 312.756 1581.78 312.756L1700.19 312.756L1700.19 349.523L1477.2 349.523Z" fill="currentColor"/>
+            <path d="M1212.84 349.523L1212.84 5.72998L1254.38 5.72999L1254.38 246.385C1254.38 288.882 1277.78 311.801 1319.8 311.801L1427.24 311.801L1427.24 349.523L1212.84 349.523Z" fill="currentColor"/>
+            <path d="M916.743 349.523L916.743 5.72992L1046.14 5.72994C1115.38 5.72995 1175.54 46.7941 1175.54 128.922C1175.54 212.006 1118.24 254.025 1041.85 254.025L957.808 254.025L957.808 349.523L916.743 349.523ZM1046.62 220.6C1097.23 220.6 1138.3 179.059 1138.3 129.877C1138.3 79.2634 1097.23 38.1993 1046.62 38.1993C996.484 38.1993 958.763 79.7409 958.763 129.877C958.763 179.536 996.484 220.6 1046.62 220.6Z" fill="currentColor"/>
+            <path d="M710.979 355.253C610.706 355.253 537.173 279.809 537.173 177.626C537.173 74.9659 610.706 1.2857e-05 710.979 3.03893e-05C810.774 4.78381e-05 883.83 75.4435 883.83 177.626C883.83 280.287 810.774 355.253 710.979 355.253ZM710.979 313.233C786.9 313.234 842.289 254.98 842.289 177.626C842.289 97.8855 786.422 38.1993 710.979 38.1992C635.058 38.1992 579.192 98.363 579.192 177.626C579.192 255.457 635.058 313.233 710.979 313.233Z" fill="currentColor"/>
+            <path d="M295.622 349.523L295.622 5.72986L518.61 5.7299L518.61 42.4966L400.193 42.4966C363.903 42.4966 337.164 65.8936 337.164 101.228C337.164 132.742 359.606 159.004 390.165 159.004L499.988 159.004L499.988 196.248L390.165 196.248C359.128 196.248 337.164 221.078 337.164 252.592C337.164 287.926 363.903 312.756 400.193 312.756L518.61 312.756L518.61 349.523L295.622 349.523Z" fill="currentColor"/>
+            <path d="M0 349.523L0 5.7298L129.4 5.72982C198.636 5.72983 258.8 46.794 258.8 128.922C258.8 212.006 201.501 254.025 125.102 254.025L41.0642 254.025L41.0641 349.523L0 349.523ZM129.877 220.6C180.491 220.6 221.555 179.059 221.555 129.877C221.555 79.2633 180.491 38.1992 129.877 38.1991C79.7409 38.1991 42.0192 79.7408 42.0192 129.877C42.0191 179.536 79.7409 220.6 129.877 220.6Z" fill="currentColor"/>
+          </svg>
+        </a>
+        <div class="nav__right">
+          <button type="button" class="nav__link" data-skeleton-slide="studio" aria-expanded="false" aria-controls="studio-overlay">Studio</button>
+          <a href="#contact" class="nav__link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main id="main" aria-label="Homepage">
+      <div class="page-container">
+
+        <!-- PROJECTS / FEATURED -->
+        <section class="featured skeleton-page-featured" id="projects" aria-labelledby="intro-heading">
+          <div class="home-intro">
+            <h2 class="home-intro__heading" id="intro-heading">
+              <span class="home-intro__copy">
+                <span class="home-intro__label">/INTRO</span>
+                <span class="home-intro__line">We design spaces around real human behaviour. How they're used. How they feel. How they evolve over time.</span>
+              </span>
+            </h2>
+          </div>
+
+          <div class="featured__grid-wrap">
+            <div class="featured__sidebar">
+              <h3>Projects</h3>
+            </div>
+            <div class="products-grid">
+              <a href="case-study.html" class="product-card" data-skeleton-case-study aria-haspopup="dialog" aria-controls="case-study-overlay">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <h4 class="product-card__name">Cork Studio</h4>
+                <span class="product-card__arrow" aria-hidden="true"><div class="product-card__arrow-icon skeleton-ph" role="presentation"></div></span>
+                <span class="product-card__arrow-view">→ View</span>
+                <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
+              </a>
+              <a href="#" class="product-card product-card--blur-default">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <h4 class="product-card__name">Hooded Sweater</h4>
+                <span class="product-card__arrow" aria-hidden="true"><div class="product-card__arrow-icon skeleton-ph" role="presentation"></div></span>
+                <span class="product-card__arrow-view">→ View</span>
+                <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
+              </a>
+              <a href="#" class="product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <h4 class="product-card__name">Hooded Sweater</h4>
+                <span class="product-card__arrow" aria-hidden="true"><div class="product-card__arrow-icon skeleton-ph" role="presentation"></div></span>
+                <span class="product-card__arrow-view">→ View</span>
+                <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
+              </a>
+              <a href="#" class="product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <h4 class="product-card__name">Hooded Sweater</h4>
+                <span class="product-card__arrow" aria-hidden="true"><div class="product-card__arrow-icon skeleton-ph" role="presentation"></div></span>
+                <span class="product-card__arrow-view">→ View</span>
+                <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <div class="section-spacer" aria-hidden="true"></div>
+    <div class="footer-reveal-sentinel" aria-hidden="true"></div>
+
+  </div><!-- /.main-content -->
+
+  <!-- ============================================================
+       SLIDE OVERLAYS — Journal, Studio, Case Study
+       ============================================================ -->
+
+  <!-- JOURNAL OVERLAY -->
+  <div class="skeleton-slide-overlay" id="journal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="journal-overlay-title">
+    <div class="skeleton-slide-overlay__panel">
+      <div class="skeleton-slide-overlay__head">
+        <h2 id="journal-overlay-title" class="skeleton-slide-overlay__title">Journal</h2>
+        <button type="button" class="skeleton-slide-overlay__close" aria-label="Close">&times;</button>
+      </div>
+      <div class="skeleton-slide-overlay__body skeleton-slide-overlay__body--flush">
+        <section class="journal-mosaic journal-mosaic--overlay" aria-label="Journal">
+          <div class="page-container page-container--wide">
+            <div class="journal-grid">
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo journal-grid__cell--bw product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <div class="journal-grid__cell journal-grid__cell--text journal-grid__cell--display" aria-hidden="true"></div>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo journal-grid__cell--bw product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <div class="journal-grid__cell journal-grid__cell--text journal-grid__cell--blurb" aria-hidden="true"></div>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <div class="journal-grid__cell journal-grid__cell--brand">
+                <div class="journal-grid__brand-img skeleton-ph" role="presentation" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDIO OVERLAY -->
+  <div class="skeleton-slide-overlay" id="studio-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="studio-overlay-title">
+    <div class="skeleton-slide-overlay__panel">
+      <div class="skeleton-slide-overlay__head">
+        <h2 id="studio-overlay-title" class="skeleton-slide-overlay__title">Studio</h2>
+        <button type="button" class="skeleton-slide-overlay__close" aria-label="Close">&times;</button>
+      </div>
+      <div class="skeleton-slide-overlay__body skeleton-slide-overlay__body--studio">
+        <div class="studio-slide-hero page-container">
+          <h2 class="studio-slide-hero__heading">
+            <span class="studio-slide-hero__copy">
+              <figure class="studio-slide-hero__figure">
+                <div class="studio-slide-hero__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+              </figure>
+              <span class="studio-slide-hero__label">(01) Boutique<br>studio</span>
+              <span class="studio-slide-hero__line">We design spaces around real human behaviour. How they're used. How they feel. How they evolve over time.</span>
+            </span>
+          </h2>
+        </div>
+        <section class="studio-beliefs studio-beliefs--skeleton-slide" aria-label="What we believe">
+          <div class="page-container studio-beliefs__wrap">
+            <div class="studio-beliefs-intro">
+              <p class="studio-beliefs-intro__label">Our beliefs</p>
+              <p class="studio-beliefs-intro__text">Behind every brand lies an idea. An attitude. A story. Our task is to make all of that visible – with clarity, substance, and an eye for what truly matters.</p>
+              <p class="studio-beliefs-intro__text">Whether it's brand identity, web design, or positioning – we create presentations that are unique and stand the test of time. Technically precise. Visually minimalist.</p>
+            </div>
+            <div class="studio-beliefs-marquee" aria-hidden="true">
+              <div class="studio-beliefs-marquee__row studio-beliefs-marquee__row--1">
+                <div class="studio-beliefs-marquee__viewport">
+                  <div class="studio-beliefs-marquee__track">
+                    <span class="studio-beliefs-marquee__chunk">We design spaces around real human behaviour.&nbsp;</span>
+                    <span class="studio-beliefs-marquee__chunk">We design spaces around real human behaviour.&nbsp;</span>
+                  </div>
+                </div>
+              </div>
+              <div class="studio-beliefs-marquee__row studio-beliefs-marquee__row--2">
+                <div class="studio-beliefs-marquee__viewport">
+                  <div class="studio-beliefs-marquee__track studio-beliefs-marquee__track--rev">
+                    <span class="studio-beliefs-marquee__chunk">We design spaces around real human behaviour.&nbsp;</span>
+                    <span class="studio-beliefs-marquee__chunk">We design spaces around real human behaviour.&nbsp;</span>
+                  </div>
+                </div>
+              </div>
+              <div class="studio-beliefs-marquee__row studio-beliefs-marquee__row--3">
+                <div class="studio-beliefs-marquee__viewport">
+                  <div class="studio-beliefs-marquee__track">
+                    <span class="studio-beliefs-marquee__chunk">We design spaces around real human behaviour.&nbsp;</span>
+                    <span class="studio-beliefs-marquee__chunk">We design spaces around real human behaviour.&nbsp;</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDY OVERLAY -->
+  <div class="skeleton-slide-overlay" id="case-study-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Cork Studio case study">
+    <div class="skeleton-slide-overlay__panel skeleton-slide-overlay__panel--case-study">
+      <div class="skeleton-slide-overlay__head skeleton-slide-overlay__head--close-only">
+        <button type="button" class="skeleton-slide-overlay__close" aria-label="Close">&times;</button>
+      </div>
+      <div class="skeleton-slide-overlay__body skeleton-slide-overlay__body--flush skeleton-case-study-body">
+        <article class="case-study case-study--groth" lang="en">
+
+          <!-- Tan band -->
+          <section class="case-study__band case-study__band--tan" aria-label="Project introduction">
+            <div class="case-study__inner page-container page-container--rail">
+              <div class="case-study__hero-head case-study__hero-grid">
+                <h1 class="case-study__hero-title">
+                  <span class="case-study__hero-title-line">Cork</span>
+                  <span class="case-study__hero-title-line">Studio</span>
+                </h1>
+                <div class="case-study__meta-cols" aria-label="Project details">
+                  <div class="case-study__meta-col">
+                    <div class="case-study__meta-item">
+                      <p class="case-study__meta-label">Type</p>
+                      <p class="case-study__meta-value">Research &amp; product</p>
+                    </div>
+                    <div class="case-study__meta-item">
+                      <p class="case-study__meta-label">Location</p>
+                      <p class="case-study__meta-value">Stockholm region · Nordic test courts</p>
+                    </div>
+                    <div class="case-study__meta-item">
+                      <p class="case-study__meta-label">Status</p>
+                      <p class="case-study__meta-value">Field lab, ongoing iteration</p>
+                    </div>
+                  </div>
+                  <div class="case-study__meta-col">
+                    <div class="case-study__meta-item">
+                      <p class="case-study__meta-label">Scope</p>
+                      <p class="case-study__meta-value">Full-scale wear tests, player feedback, supplier co-development, segment-replaceable system design</p>
+                    </div>
+                    <div class="case-study__meta-item">
+                      <p class="case-study__meta-label">Materials</p>
+                      <div class="case-study__material-swatches" role="list">
+                        <span class="case-study__material-swatch case-study__material-swatch--a" role="listitem" aria-label="Recycled rubber"></span>
+                        <span class="case-study__material-swatch case-study__material-swatch--b" role="listitem" aria-label="UV-stable binders"></span>
+                        <span class="case-study__material-swatch case-study__material-swatch--c" role="listitem" aria-label="Surface composite"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <figure class="case-study__hero-figure">
+              <div class="case-study__hero-img skeleton-ph" role="presentation" aria-hidden="true"></div>
+            </figure>
+
+            <div class="case-study__inner page-container page-container--rail">
+              <div class="case-study__intro-split case-study__hero-grid">
+                <div class="case-study__intro-key">
+                  <div class="skeleton-ph" role="presentation" aria-hidden="true"></div>
+                </div>
+                <div class="case-study__intro-copy">
+                  <h2 class="case-study__intro-heading case-study__intro-heading--lead">Cork Studio draws the room toward warmth and tactility—linseed underfoot, soft light on cork, and a quiet rhythm between bar and booth.</h2>
+                  <p class="case-study__prose case-study__prose--intro">The narrative folds together the plainspoken lines of mid-century interiors and the ease of a late night as the room thins out and the city keeps moving outside.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- White band -->
+          <section class="case-study__band case-study__band--white" aria-label="Project details">
+            <div class="case-study__inner case-study__inner--wide page-container page-container--wide">
+
+              <div class="case-study__block case-study__block--pair-images">
+                <div class="case-study__rail">
+                  <div class="case-study__pair-images case-study__hero-grid">
+                    <figure class="case-study__media case-study__media--portrait case-study__pair-images__sm">
+                      <div class="skeleton-ph" role="presentation" aria-hidden="true"></div>
+                    </figure>
+                    <figure class="case-study__media case-study__media--portrait case-study__pair-images__lg case-study__media--hotspots">
+                      <div class="case-study__hotspot-stage">
+                        <div class="case-study__hotspot-stage__img-wrap">
+                          <div class="skeleton-ph" role="presentation" aria-hidden="true"></div>
+                        </div>
+                        <button type="button" class="case-study__img-hotspot" style="left:22%;top:38%;" aria-label="Surface layer: recycled rubber blend." aria-expanded="false">
+                          <span class="case-study__img-hotspot__dot" aria-hidden="true"></span>
+                          <span class="case-study__img-hotspot__tip" role="tooltip">
+                            <span class="case-study__img-hotspot__tip-text">Recycled rubber blend tuned for Nordic freeze-thaw cycles.</span>
+                          </span>
+                        </button>
+                        <button type="button" class="case-study__img-hotspot" style="left:72%;top:55%;" aria-label="Drainage: perimeter detail." aria-expanded="false">
+                          <span class="case-study__img-hotspot__dot" aria-hidden="true"></span>
+                          <span class="case-study__img-hotspot__tip" role="tooltip">
+                            <span class="case-study__img-hotspot__tip-text">Perimeter detail routes runoff away from the playing slab.</span>
+                          </span>
+                        </button>
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__block case-study__block--split-copy">
+                <div class="case-study__rail">
+                  <div class="case-study__split-copy case-study__hero-grid">
+                    <div class="case-study__split-copy__lead">
+                      <h2 class="case-study__intro-heading case-study__intro-heading--lead">Cork Studio draws the room toward warmth and tactility—linseed underfoot, soft light on cork.</h2>
+                    </div>
+                    <div class="case-study__split-copy__body">
+                      <p class="case-study__prose">Recycled content in the surface layer is balanced with grip and UV stability so outdoor courts don't trade one problem for another.</p>
+                      <p class="case-study__prose">Documentation is written for facilities managers—repeatable maintenance without a brand team on site.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__block case-study__block--fullbleed">
+                <div class="case-study__parallax-plan" data-parallax-plan>
+                  <div class="case-study__parallax-plan__base">
+                    <div class="skeleton-ph" role="presentation" aria-hidden="true"></div>
+                  </div>
+                  <div class="case-study__parallax-plan__layers" aria-hidden="true">
+                    <div class="case-study__parallax-plan__float skeleton-ph" data-parallax-speed="0.12" style="--fp-left:5%;--fp-top:8%;--fp-w:15%;"></div>
+                    <div class="case-study__parallax-plan__float skeleton-ph" data-parallax-speed="-0.16" style="--fp-left:70%;--fp-top:14%;--fp-w:14%;"></div>
+                    <div class="case-study__parallax-plan__float skeleton-ph" data-parallax-speed="0.2" style="--fp-left:40%;--fp-top:48%;--fp-w:13%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__block case-study__block--materials">
+                <div class="case-study__rail">
+                  <div class="case-study__materials-grid">
+                    <div class="case-study__materials-copy">
+                      <div class="case-study__materials-copy__item">
+                        <h3 class="case-study__materials-copy__head">Cork &amp; recycled rubber</h3>
+                        <p class="case-study__materials-copy__body">Wall and bar cladding use cork for warmth and acoustics; the surface layer blends recycled rubber with UV-stable binders.</p>
+                      </div>
+                      <div class="case-study__materials-copy__item">
+                        <h3 class="case-study__materials-copy__head">Linseed-finished timber</h3>
+                        <p class="case-study__materials-copy__body">Underfoot, linseed oil–finished timber ties the room to a maintainable, honest material palette.</p>
+                      </div>
+                      <div class="case-study__materials-copy__item">
+                        <h3 class="case-study__materials-copy__head">UV-stable surface system</h3>
+                        <p class="case-study__materials-copy__body">The outdoor segment system is judged on accelerated UV cycles and real club sessions alike.</p>
+                      </div>
+                    </div>
+                    <p class="case-study__materials-label">/ Materials</p>
+                    <ul class="case-study__materials-circles" role="list">
+                      <li>
+                        <button type="button" class="case-study__material-circle" aria-label="Cork material">
+                          <span class="case-study__material-circle__inner">
+                            <span class="case-study__material-circle__photo" aria-hidden="true"></span>
+                          </span>
+                        </button>
+                      </li>
+                      <li>
+                        <button type="button" class="case-study__material-circle" aria-label="Rubber material">
+                          <span class="case-study__material-circle__inner">
+                            <span class="case-study__material-circle__photo" aria-hidden="true"></span>
+                          </span>
+                        </button>
+                      </li>
+                      <li>
+                        <button type="button" class="case-study__material-circle" aria-label="Surface material">
+                          <span class="case-study__material-circle__inner">
+                            <span class="case-study__material-circle__photo" aria-hidden="true"></span>
+                          </span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__block case-study__block--metrics">
+                <div class="case-study__rail">
+                  <div class="case-study__metrics-wrap">
+                    <table class="case-study__metrics">
+                      <tbody>
+                        <tr><td>Recycled content (surface layer)</td><td>62% post-industrial rubber</td></tr>
+                        <tr><td>UV exposure cycles passed</td><td>Equivalent to 8 Nordic summers</td></tr>
+                        <tr><td>Player comfort score</td><td>4.6 / 5 after 120 hours on court</td></tr>
+                        <tr><td>Maintenance window</td><td>Segment swap in under 6 hours</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-study__rail">
+                <p class="case-study__back"><a href="#projects">← All projects</a></p>
+                <p class="case-study__credit">Photography — PEOPLE / Field Lab archive</p>
+              </div>
+
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MOBILE MENU
+       ============================================================ -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-menu__glass"></div>
+    <div class="mobile-menu__panel">
+      <div class="mobile-menu__top">
+        <img src="images/PEOPLE-square.svg" alt="PEOPLE" width="30" height="30" loading="lazy">
+        <button type="button" class="mobile-menu__close" aria-label="Close menu">&times;</button>
+      </div>
+      <div class="mobile-menu__links">
+        <a href="#projects" class="mobile-menu__link"><span>01</span> Projects</a>
+        <button type="button" class="mobile-menu__link" data-mobile-slide="journal"><span>02</span> Journal</button>
+        <button type="button" class="mobile-menu__link" data-mobile-slide="studio"><span>03</span> Studio</button>
+        <a href="#contact" class="mobile-menu__link"><span>04</span> Contact</a>
+      </div>
+      <div class="mobile-menu__footer">
+        <div class="mobile-menu__copy">© PEOPLE</div>
+        <div class="mobile-menu__socials">
+          <a href="#" class="mobile-menu__social">LinkedIn</a>
+          <a href="#" class="mobile-menu__social">Instagram</a>
+          <a href="#" class="mobile-menu__social">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER — revealed at scroll end
+       ============================================================ -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <div class="footer__stage">
+        <div class="footer__physics-wrap">
+          <div class="footer__physics"
+            id="physics-letters"
+            data-img-p="https://cdn.prod.website-files.com/69a9b56891946f79541be433/69a9b63e322dbd48b7ee2918_p.png"
+            data-img-e="https://cdn.prod.website-files.com/69a9b56891946f79541be433/69a9b63eda5e38611760a9ad_e.png"
+            data-img-o="https://cdn.prod.website-files.com/69a9b56891946f79541be433/69a9b63e85b865d705f5d341_o.png"
+            data-img-l="https://cdn.prod.website-files.com/69a9b56891946f79541be433/69a9b63f164f3c621d6a067c_l.png">
+            <canvas></canvas>
+          </div>
+        </div>
+        <div class="footer__ui">
+          <div class="footer__grid">
+            <div class="footer__block">
+              <p class="footer__label">Explore</p>
+              <nav class="footer__nav" aria-label="Footer">
+                <a href="#projects" class="footer__nav-link">Projects</a>
+                <button type="button" class="footer__nav-link" data-skeleton-slide="journal">Journal</button>
+                <button type="button" class="footer__nav-link" data-skeleton-slide="studio">Studio</button>
+              </nav>
+            </div>
+            <div class="footer__block">
+              <p class="footer__label">Stalk us</p>
+              <div class="footer__social">
+                <a href="#" class="footer__nav-link" rel="noopener noreferrer">LinkedIn</a>
+                <a href="#" class="footer__nav-link" rel="noopener noreferrer">Instagram</a>
+                <a href="#" class="footer__nav-link" rel="noopener noreferrer">Twitter</a>
+                <a href="#" class="footer__nav-link" rel="noopener noreferrer">TikTok</a>
+              </div>
+            </div>
+            <div class="footer__block footer__block--contact">
+              <div class="footer__contact-pair">
+                <p class="footer__label">Say hello</p>
+                <a href="mailto:hello@people.com" class="footer__email">hello@people.com</a>
+              </div>
+              <div class="footer__contact-pair">
+                <p class="footer__label">Exceptional talent?</p>
+                <a href="mailto:apply@people.com" class="footer__email">apply@people.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__meta">
+        <span>© PEOPLE</span>
+        <span class="footer__meta-place">Stockholm, Sweden</span>
+        <span class="footer__meta-legal">
+          <a href="#">Imprint</a><span class="footer__meta-sep">|</span><a href="#">Privacy</a><span class="footer__meta-sep">|</span><a href="#">Press</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script src="js/page-transition-lottie-data.js"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
