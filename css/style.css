@@ -309,7 +309,7 @@ button.nav__link { font: inherit; color: inherit; }
 
 
 /* ==========================================================================
-   MOBILE MENU — bottom sheet (matches slide-up overlays + footer black)
+   MOBILE MENU — bottom sheet (footer black; no backdrop — only sheet is visible)
    ========================================================================== */
 .mobile-menu {
   position: fixed; inset: 0;
@@ -318,38 +318,28 @@ button.nav__link { font: inherit; color: inherit; }
   flex-direction: column;
   justify-content: flex-end;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  background: none;
 }
 .mobile-menu.is-open {
-  pointer-events: auto;
-  opacity: 1;
+  pointer-events: none;
 }
 
-.mobile-menu__glass {
-  position: absolute; inset: 0;
-  z-index: 0;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-/* Same base treatment as .footer — deep black + texture */
+/* Same base treatment as .footer — deep black + texture; top radius matches slide panels */
 .mobile-menu__sheet {
   position: relative;
   z-index: 1;
   width: 100%;
   max-height: min(88vh, 100%);
   flex-shrink: 0;
+  pointer-events: auto;
   color: #fff;
   background: #000 url('../images/bg-black.webp') center/cover;
-  border-top-left-radius: clamp(1.25rem, 5vw, 2rem);
-  border-top-right-radius: clamp(1.25rem, 5vw, 2rem);
+  border-top-left-radius: clamp(0.75rem, 2vw, 1.125rem);
+  border-top-right-radius: clamp(0.75rem, 2vw, 1.125rem);
   transform: translate3d(0, 100%, 0);
   transition: transform var(--slide-duration) var(--slide-ease);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35);
 }
 .mobile-menu.is-open .mobile-menu__sheet {
   transform: translate3d(0, 0, 0);
@@ -357,45 +347,32 @@ button.nav__link { font: inherit; color: inherit; }
 }
 .mobile-menu:not(.is-open) .mobile-menu__sheet {
   will-change: auto;
+  pointer-events: none;
 }
 
 .mobile-menu__sheet-inner {
-  padding: 0 0 max(1.25rem, env(safe-area-inset-bottom));
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
 }
 
-.mobile-menu__sheet-head {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0.65rem var(--page-gutter) 0;
+/* Shared slide shell: same horizontal padding as .skeleton-slide-overlay__head */
+.mobile-menu__sheet-head.skeleton-slide-overlay__head {
+  padding: clamp(0.85rem, 2.5vw, 1.25rem) var(--page-gutter);
 }
 
-.mobile-menu__close {
-  flex-shrink: 0;
-  width: 2.75rem;
-  height: 2.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-  line-height: 1;
+/* Circle close — same control as slide overlays, inverted for dark panel */
+.mobile-menu .skeleton-slide-overlay__close {
   color: #fff;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.2s ease;
+  border-color: rgba(255, 255, 255, 0.28);
 }
-.mobile-menu__close:hover,
-.mobile-menu__close:focus-visible {
+.mobile-menu .skeleton-slide-overlay__close:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* Same vertical/side/bottom padding as .skeleton-slide-overlay__body */
 .mobile-menu__links {
   display: flex;
   flex-direction: column;
-  padding: 0.25rem var(--page-gutter) 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem) var(--page-gutter) clamp(2.5rem, 6vw, 4rem);
   border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 

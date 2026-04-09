@@ -132,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (menuBtn && menu) {
     menuBtn.addEventListener('click', () => setMenuOpen(!menu.classList.contains('is-open')));
     if (closeBtn) closeBtn.addEventListener('click', () => setMenuOpen(false));
-    menu.querySelector('.mobile-menu__glass')?.addEventListener('click', () => setMenuOpen(false));
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && menu.classList.contains('is-open')) setMenuOpen(false);
     });
