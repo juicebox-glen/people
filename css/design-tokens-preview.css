@@ -1,0 +1,211 @@
+/* PEOPLE — Design tokens preview page only (not used in production UI) */
+
+.dt-page {
+  min-height: 100vh;
+  padding: clamp(1.5rem, 4vw, 3rem) var(--page-gutter) clamp(3rem, 8vw, 5rem);
+}
+
+.dt-header {
+  max-width: var(--max-rail);
+  margin: 0 auto 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.dt-title {
+  font-family: var(--font-headline);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.dt-lede {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink);
+  opacity: 0.78;
+  max-width: 40rem;
+  margin: 0;
+}
+
+.dt-meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.55;
+  margin-top: 1rem;
+}
+
+.dt-main {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.dt-section {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: clamp(0.5rem, 1.5vw, 0.75rem);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.dt-section__title {
+  font-family: var(--font-headline);
+  font-weight: 500;
+  font-size: clamp(0.8125rem, 1.5vw, 0.9375rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.dt-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .dt-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dt-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* —— Color swatches —— */
+.dt-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.dt-swatch__chip {
+  aspect-ratio: 2.4 / 1;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.dt-swatch__chip--ring-light {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.dt-swatch__name {
+  font-family: var(--font-headline);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.dt-swatch__hex {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  opacity: 0.65;
+  margin: 0;
+  word-break: break-all;
+}
+
+.dt-swatch__note {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink);
+  opacity: 0.72;
+  margin: 0;
+}
+
+/* —— Variable table —— */
+.dt-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.dt-table th,
+.dt-table td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  vertical-align: top;
+}
+
+.dt-table th {
+  font-family: var(--font-headline);
+  font-weight: 500;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  opacity: 0.7;
+}
+
+.dt-table code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  word-break: break-all;
+}
+
+/* —— Typography sandbox (mirrors production classes) —— */
+.dt-preview {
+  max-width: 48rem;
+}
+
+.dt-preview--dark {
+  background: var(--ink) url('../images/bg-black.webp') center/cover;
+  color: #fff;
+  padding: 1.5rem var(--page-gutter);
+  border-radius: 0.35rem;
+}
+
+.dt-preview--studio {
+  background: var(--studio-panel-bg);
+  color: var(--ink);
+  padding: 1.5rem var(--page-gutter);
+  border-radius: 0.35rem;
+}
+
+.dt-preview--overlay {
+  background: #fff;
+  color: var(--ink);
+  padding: clamp(0.85rem, 2.5vw, 1.25rem) var(--page-gutter);
+  border-radius: clamp(0.75rem, 2vw, 1.125rem) clamp(0.75rem, 2vw, 1.125rem) 0 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dt-preview .home-intro {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.dt-preview .home-intro__heading {
+  --intro-fs: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.dt-preview .featured__sidebar {
+  margin-bottom: 0.5rem;
+}
+
+.dt-spacer {
+  height: 0.75rem;
+}

@@ -37,8 +37,14 @@
 
     <!-- HERO -->
     <section class="hero" id="hero" aria-label="Hero">
-      <div class="hero__video-wrap hero__video-wrap--skeleton-ph">
-        <div class="skeleton-ph skeleton-ph--hero" aria-hidden="true"></div>
+      <div class="hero__video-wrap">
+        <iframe
+          src="https://player.vimeo.com/video/1113059824?background=1&amp;autoplay=1&amp;autopause=0&amp;loop=1&amp;muted=1&amp;playsinline=1&amp;quality=auto&amp;transparent=0"
+          title="Hero background video"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          loading="eager"></iframe>
+        <div class="hero__video-poster" aria-hidden="true"></div>
       </div>
       <div class="hero__overlay"></div>
       <div class="hero__tagline">NEW WAYS OF BEING</div>
@@ -104,30 +110,38 @@
             </div>
             <div class="products-grid">
               <a href="case-study.html" class="product-card" data-skeleton-case-study aria-haspopup="dialog" aria-controls="case-study-overlay">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
-                <h4 class="product-card__name">Cork Studio</h4>
-                <span class="product-card__arrow" aria-hidden="true"><div class="product-card__arrow-icon skeleton-ph" role="presentation"></div></span>
+                <img class="product-card__img" src="images/project-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
+                <h4 class="product-card__name">Project</h4>
+                <span class="product-card__arrow" aria-hidden="true">
+                  <img class="product-card__arrow-icon product-card__arrow-icon--key" src="images/key.svg" alt="" width="89" height="46" decoding="async">
+                </span>
                 <span class="product-card__arrow-view">→ View</span>
                 <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
               </a>
-              <a href="#" class="product-card product-card--blur-default">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+              <a href="#" class="product-card" data-skeleton-case-study data-case-study-theme="light" aria-haspopup="dialog" aria-controls="case-study-overlay">
+                <img class="product-card__img" src="images/project-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <h4 class="product-card__name">Hooded Sweater</h4>
-                <span class="product-card__arrow" aria-hidden="true"><div class="product-card__arrow-icon skeleton-ph" role="presentation"></div></span>
+                <span class="product-card__arrow" aria-hidden="true">
+                  <img class="product-card__arrow-icon product-card__arrow-icon--key" src="images/key.svg" alt="" width="89" height="46" decoding="async">
+                </span>
                 <span class="product-card__arrow-view">→ View</span>
                 <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
               </a>
-              <a href="#" class="product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+              <a href="#" class="product-card" data-skeleton-case-study data-case-study-theme="light" aria-haspopup="dialog" aria-controls="case-study-overlay">
+                <img class="product-card__img" src="images/project-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <h4 class="product-card__name">Hooded Sweater</h4>
-                <span class="product-card__arrow" aria-hidden="true"><div class="product-card__arrow-icon skeleton-ph" role="presentation"></div></span>
+                <span class="product-card__arrow" aria-hidden="true">
+                  <img class="product-card__arrow-icon product-card__arrow-icon--key" src="images/key.svg" alt="" width="89" height="46" decoding="async">
+                </span>
                 <span class="product-card__arrow-view">→ View</span>
                 <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
               </a>
-              <a href="#" class="product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+              <a href="#" class="product-card" data-skeleton-case-study data-case-study-theme="light" aria-haspopup="dialog" aria-controls="case-study-overlay">
+                <img class="product-card__img" src="images/project-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <h4 class="product-card__name">Hooded Sweater</h4>
-                <span class="product-card__arrow" aria-hidden="true"><div class="product-card__arrow-icon skeleton-ph" role="presentation"></div></span>
+                <span class="product-card__arrow" aria-hidden="true">
+                  <img class="product-card__arrow-icon product-card__arrow-icon--key" src="images/key.svg" alt="" width="89" height="46" decoding="async">
+                </span>
                 <span class="product-card__arrow-view">→ View</span>
                 <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
               </a>
@@ -159,46 +173,41 @@
           <div class="page-container page-container--wide">
             <div class="journal-grid">
               <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <img class="product-card__img" src="images/journal-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <div class="product-card__overlay"><div class="product-card__blur"></div></div>
               </a>
               <a href="#" class="journal-grid__cell journal-grid__cell--photo journal-grid__cell--bw product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
-                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
-              </a>
-              <div class="journal-grid__cell journal-grid__cell--text journal-grid__cell--display" aria-hidden="true"></div>
-              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <img class="product-card__img" src="images/journal-2.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <div class="product-card__overlay"><div class="product-card__blur"></div></div>
               </a>
               <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <img class="product-card__img" src="images/journal-3.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <div class="product-card__overlay"><div class="product-card__blur"></div></div>
               </a>
               <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <img class="product-card__img" src="images/journal-4.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <img class="product-card__img" src="images/journal-5.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <div class="product-card__overlay"><div class="product-card__blur"></div></div>
               </a>
               <a href="#" class="journal-grid__cell journal-grid__cell--photo journal-grid__cell--bw product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <img class="product-card__img" src="images/journal-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <div class="product-card__overlay"><div class="product-card__blur"></div></div>
               </a>
               <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
-                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
-              </a>
-              <div class="journal-grid__cell journal-grid__cell--text journal-grid__cell--blurb" aria-hidden="true"></div>
-              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <img class="product-card__img" src="images/journal-2.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <div class="product-card__overlay"><div class="product-card__blur"></div></div>
               </a>
               <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
-                <div class="product-card__img skeleton-ph" role="presentation" aria-hidden="true"></div>
+                <img class="product-card__img" src="images/journal-3.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <div class="product-card__overlay"><div class="product-card__blur"></div></div>
               </a>
-              <div class="journal-grid__cell journal-grid__cell--brand">
-                <div class="journal-grid__brand-img skeleton-ph" role="presentation" aria-hidden="true"></div>
-              </div>
+              <a href="#" class="journal-grid__cell journal-grid__cell--photo product-card">
+                <img class="product-card__img" src="images/journal-4.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
+                <div class="product-card__overlay"><div class="product-card__blur"></div></div>
+              </a>
             </div>
           </div>
         </section>
@@ -265,9 +274,10 @@
   </div>
 
   <!-- CASE STUDY OVERLAY -->
-  <div class="skeleton-slide-overlay" id="case-study-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Cork Studio case study">
+  <div class="skeleton-slide-overlay" id="case-study-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="case-study-overlay-title">
     <div class="skeleton-slide-overlay__panel skeleton-slide-overlay__panel--case-study">
-      <div class="skeleton-slide-overlay__head skeleton-slide-overlay__head--close-only">
+      <div class="skeleton-slide-overlay__head">
+        <h2 id="case-study-overlay-title" class="skeleton-slide-overlay__title">Project</h2>
         <button type="button" class="skeleton-slide-overlay__close" aria-label="Close">&times;</button>
       </div>
       <div class="skeleton-slide-overlay__body skeleton-slide-overlay__body--flush skeleton-case-study-body">
@@ -315,13 +325,28 @@
             </div>
 
             <figure class="case-study__hero-figure">
-              <div class="case-study__hero-img skeleton-ph" role="presentation" aria-hidden="true"></div>
+              <img
+                class="case-study__hero-img case-study__hero-img--theme-slate"
+                src="images/illo.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width="1304"
+                height="718">
+              <img
+                class="case-study__hero-img case-study__hero-img--theme-light"
+                src="images/project-1.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                width="1080"
+                height="1350">
             </figure>
 
             <div class="case-study__inner page-container page-container--rail">
               <div class="case-study__intro-split case-study__hero-grid">
                 <div class="case-study__intro-key">
-                  <div class="skeleton-ph" role="presentation" aria-hidden="true"></div>
+                  <img class="case-study__intro-key-img" src="images/key.svg" alt="" width="89" height="46" decoding="async">
                 </div>
                 <div class="case-study__intro-copy">
                   <h2 class="case-study__intro-heading case-study__intro-heading--lead">Cork Studio draws the room toward warmth and tactility—linseed underfoot, soft light on cork, and a quiet rhythm between bar and booth.</h2>

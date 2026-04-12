@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>PEOPLE — Design tokens &amp; typography</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/design-tokens-preview.css">
+</head>
+<body class="dt-page">
+  <header class="dt-header">
+    <h1 class="dt-title">Design tokens &amp; typography</h1>
+    <p class="dt-lede">
+      Reference for colours and type used across the site. Source of truth remains <code>css/style.css</code>; use this page to align new work and consolidate duplicates over time.
+    </p>
+    <p class="dt-meta">Internal preview · not linked from production nav</p>
+  </header>
+
+  <main class="dt-main">
+    <!-- Colours -->
+    <section class="dt-section" aria-labelledby="sec-colors">
+      <h2 id="sec-colors" class="dt-section__title">Colours</h2>
+      <div class="dt-grid dt-grid--3">
+        <div class="dt-swatch">
+          <div class="dt-swatch__chip dt-swatch__chip--ring-light" style="background: var(--page-bg);"></div>
+          <p class="dt-swatch__name">Page background</p>
+          <p class="dt-swatch__hex">#FFF6EE · var(--page-bg)</p>
+          <p class="dt-swatch__note">Main canvas, nav, intro. RGB in <code>--page-bg-rgb</code> for morph.</p>
+        </div>
+        <div class="dt-swatch">
+          <div class="dt-swatch__chip" style="background: var(--ink);"></div>
+          <p class="dt-swatch__name">Ink (default text &amp; black surfaces)</p>
+          <p class="dt-swatch__hex">#000 · var(--ink) · --ink-rgb</p>
+          <p class="dt-swatch__note">Same as page-transition loading black. Body copy, nav, underlines, hero chrome, poster underlay, iframe letterbox, footer &amp; mobile menu base (often with <strong>bg-black.webp</strong>).</p>
+        </div>
+        <div class="dt-swatch">
+          <div class="dt-swatch__chip" style="background: #fff; border: 1px solid rgba(0,0,0,.15);"></div>
+          <p class="dt-swatch__name">White</p>
+          <p class="dt-swatch__hex">#fff</p>
+          <p class="dt-swatch__note">Text on dark UI, slide panels (default), product card type.</p>
+        </div>
+        <div class="dt-swatch">
+          <div class="dt-swatch__chip" style="background: var(--studio-panel-bg);"></div>
+          <p class="dt-swatch__name">Studio panel</p>
+          <p class="dt-swatch__hex">#E2C1A3 · var(--studio-panel-bg)</p>
+          <p class="dt-swatch__note"><code>#studio-overlay</code> slide background.</p>
+        </div>
+        <div class="dt-swatch">
+          <div class="dt-swatch__chip" style="background: #3a3a3a;"></div>
+          <p class="dt-swatch__name">Skeleton block</p>
+          <p class="dt-swatch__hex">#3a3a3a</p>
+          <p class="dt-swatch__note">Placeholder blocks (e.g. hero skeleton).</p>
+        </div>
+      </div>
+      <p class="dt-swatch__note" style="margin-top: 1rem;">Footer &amp; mobile menu use <strong>bg-black.webp</strong> over <code>var(--ink)</code>. Borders commonly use <code>rgba(0,0,0,.08–.22)</code> on light UI and <code>rgba(255,255,255,.18–.35)</code> on dark UI.</p>
+    </section>
+
+    <!-- CSS variables -->
+    <section class="dt-section" aria-labelledby="sec-vars">
+      <h2 id="sec-vars" class="dt-section__title">CSS custom properties (:root)</h2>
+      <div class="dt-table-wrap">
+        <table class="dt-table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Value (snapshot)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--font-body</code></td><td>Ufficio 300, system-ui, sans-serif</td></tr>
+            <tr><td><code>--font-headline</code></td><td>Ufficio 500, system-ui, sans-serif</td></tr>
+            <tr><td><code>--font-mono</code></td><td>ui-monospace, Courier New, monospace</td></tr>
+            <tr><td><code>--page-bg</code></td><td>#FFF6EE</td></tr>
+            <tr><td><code>--page-bg-rgb</code></td><td>255, 246, 238</td></tr>
+            <tr><td><code>--ink</code></td><td>#000 (loading / default text)</td></tr>
+            <tr><td><code>--ink-rgb</code></td><td>0, 0, 0</td></tr>
+            <tr><td><code>--page-gutter</code></td><td>1rem → 1.5rem (≥768px) → <strong>40px</strong> (≥1440px) — nav, footer, slide/menu headers</td></tr>
+            <tr><td><code>--page-content-gutter</code></td><td>extra inset below 1440px · <strong>112px</strong> (≥1440px) — <code>.page-container</code>, slide bodies</td></tr>
+            <tr><td><code>--nav-height</code></td><td>3.75rem · 4.75rem at ≥768px</td></tr>
+            <tr><td><code>--section-y</code></td><td>clamp(2.5rem, 5vw, 4rem)</td></tr>
+            <tr><td><code>--main-pad-top</code></td><td>nav + section offset</td></tr>
+            <tr><td><code>--max-narrow</code> / <code>--max-rail</code> / <code>--max-wide</code></td><td>52rem / 72rem / 90rem</td></tr>
+            <tr><td><code>--slide-duration</code></td><td>0.72s</td></tr>
+            <tr><td><code>--slide-ease</code></td><td>cubic-bezier(0.22, 1, 0.36, 1)</td></tr>
+            <tr><td><code>--studio-panel-bg</code></td><td>#E2C1A3 (Studio overlay)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Font files -->
+    <section class="dt-section" aria-labelledby="sec-fonts">
+      <h2 id="sec-fonts" class="dt-section__title">Font files (Ufficio)</h2>
+      <div class="dt-table-wrap">
+        <table class="dt-table">
+          <thead>
+            <tr>
+              <th>Weight</th>
+              <th>File</th>
+              <th>Typical use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>300</td>
+              <td><code>fonts/Ufficio-300.ttf</code></td>
+              <td>Body copy, meta paragraphs, case study values</td>
+            </tr>
+            <tr>
+              <td>500</td>
+              <td><code>fonts/Ufficio-500.ttf</code></td>
+              <td>Headings, labels, nav, buttons, mono-style caps</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="dt-swatch__note" style="margin-top: 1rem;">Additional Ufficio / PPMori / Ufficio Display / Mono files exist under <code>fonts/</code> for future use; the live stylesheet currently loads 300 + 500 for the main stack.</p>
+    </section>
+
+    <!-- Typography samples -->
+    <section class="dt-section" aria-labelledby="sec-type">
+      <h2 id="sec-type" class="dt-section__title">Typography patterns</h2>
+
+      <h3 class="dt-section__title" style="margin-top: 0; opacity: .65;">Body &amp; default heading scale</h3>
+      <div class="dt-preview">
+        <p style="font-family: var(--font-body); font-size: 1rem; font-weight: 300; line-height: 1.5; color: var(--ink);">
+          Body — 1rem / 300 / line-height 1.5 (default <code>body</code>).
+        </p>
+        <div class="dt-spacer"></div>
+        <h2 style="font-family: var(--font-headline); font-weight: 500; font-size: 1.35rem; letter-spacing: -0.02em;">H2 sample — headline family, weight 500</h2>
+        <div class="dt-spacer"></div>
+        <h3 style="font-family: var(--font-headline); font-weight: 500; font-size: 1.125rem;">H3 sample</h3>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Home intro (featured)</h3>
+      <div class="dt-preview">
+        <div class="home-intro">
+          <h2 class="home-intro__heading" style="margin: 0;">
+            <span class="home-intro__copy">
+              <span class="home-intro__label">/INTRO</span>
+              <span class="home-intro__line">We design spaces around real human behaviour.</span>
+            </span>
+          </h2>
+        </div>
+        <p class="dt-swatch__note">Label: mono caps · line: clamp fluid size, letter-spacing −0.035em (see <code>.home-intro__heading</code>).</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Section rail label (projects)</h3>
+      <div class="dt-preview">
+        <div class="featured__sidebar">Projects</div>
+        <p class="dt-swatch__note"><code>.featured__sidebar</code> — mono, uppercase, wide tracking.</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Navigation link</h3>
+      <div class="dt-preview">
+        <a href="#" style="font-size: 1rem; position: relative; color: var(--ink);">Projects</a>
+        <p class="dt-swatch__note"><code>.nav__link</code> — 1rem, underline animation on hover.</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Slide overlay title &amp; close</h3>
+      <div class="dt-preview dt-preview--overlay">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+          <h2 class="skeleton-slide-overlay__title" style="margin: 0;">Journal</h2>
+          <button type="button" class="skeleton-slide-overlay__close" aria-label="Close sample">&times;</button>
+        </div>
+        <p class="dt-swatch__note" style="margin: 1rem 0 0;">Title: clamp 1rem–1.35rem · Close: 2.5rem circle, 1px border.</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Studio slide</h3>
+      <div class="dt-preview dt-preview--studio">
+        <p style="font-family: var(--font-headline); font-size: clamp(1.75rem, 5.5vw, 4.25rem); font-weight: 500; line-height: 1.08; letter-spacing: -0.035em; margin: 0;">
+          Studio headline chunk
+        </p>
+        <p class="dt-swatch__note" style="margin-top: 1rem; opacity: .85;">Panel uses <code>--studio-panel-bg</code> and <code>--studio-chunk-fs</code> in production.</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Case study display title</h3>
+      <div class="dt-preview">
+        <h2 class="case-study__hero-title">
+          <span class="case-study__hero-title-line">Cork</span>
+          <span class="case-study__hero-title-line">Studio</span>
+        </h2>
+        <p class="dt-swatch__note">clamp(2.5rem, 9vw, 5.75rem) · line-height .92 · tracking −.03em</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Case study meta label</h3>
+      <div class="dt-preview">
+        <div class="case-study__meta-label">Location</div>
+        <p class="case-study__meta-value">Dublin</p>
+        <p class="dt-swatch__note"><code>.case-study__meta-label</code> · <code>.case-study__meta-value</code> (300)</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Footer nav link</h3>
+      <div class="dt-preview dt-preview--dark">
+        <a href="#" class="footer__nav-link" style="pointer-events: none;">Work with us</a>
+        <p class="dt-swatch__note" style="margin-top: 1rem; color: #fff; opacity: .75;">1.125rem / 500 on dark + texture</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Footer legal</h3>
+      <div class="dt-preview dt-preview--dark">
+        <span class="footer__meta-legal"><a href="#">Imprint</a><span class="footer__meta-sep">|</span><a href="#">Privacy</a></span>
+        <p class="dt-swatch__note" style="margin-top: 0.75rem; color: #fff; opacity: .8;">Uppercase · .6875rem · tracking .06em</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Mobile menu row</h3>
+      <div class="dt-preview dt-preview--dark">
+        <div class="mobile-menu__link" style="cursor: default; padding: 0.75rem 0;">
+          <span class="mobile-menu__num">01</span>
+          <span class="mobile-menu__label">Projects</span>
+        </div>
+        <p class="dt-swatch__note" style="color: #fff; opacity: .75;">Headline family · clamp ~1.125–1.35rem</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

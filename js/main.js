@@ -4,6 +4,26 @@
    Contact scroll · Vimeo hero · Matter.js · Case study interactions
    ============================================================ */
 
+/** Nav offset for #projects only when sticky bar is flush to the top (avoids empty band when nav is off-screen). */
+function getNavClearanceForProjectsScrollPx() {
+  const nav = document.getElementById('nav');
+  if (!nav) return 0;
+  const r = nav.getBoundingClientRect();
+  const stickyAtTop = r.top <= 0.5 && r.bottom > 24;
+  if (!stickyAtTop) return 0;
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+  return nav.offsetHeight + 0.75 * rem;
+}
+
+function scrollToProjectsSection() {
+  const el = document.getElementById('projects');
+  if (!el) return;
+  const pad = getNavClearanceForProjectsScrollPx();
+  const y = el.getBoundingClientRect().top + window.scrollY - pad;
+  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  if (location.hash !== '#projects') history.replaceState(null, '', '#projects');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ================================================================
@@ -139,10 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.querySelectorAll('a[href="#contact"]').forEach((a) => {
       a.addEventListener('click', () => setMenuOpen(false));
     });
-    // Close menu when tapping Projects (scrolls to section)
-    menu.querySelectorAll('a[href="#projects"]').forEach((a) => {
-      a.addEventListener('click', () => setMenuOpen(false));
-    });
+    // Projects scroll + menu close: see "PROJECTS — smart scroll" below
     // Mobile menu → overlay triggers
     menu.querySelectorAll('[data-mobile-slide]').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -160,6 +177,23 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }, 150);
       });
+    });
+  }
+
+
+  /* ================================================================
+     PROJECTS — smart scroll (nav offset only when sticky at top)
+     ================================================================ */
+  document.querySelectorAll('a[href="#projects"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (menu?.classList.contains('is-open')) setMenuOpen(false);
+      scrollToProjectsSection();
+    });
+  });
+  if (location.hash === '#projects') {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => scrollToProjectsSection());
     });
   }
 
@@ -254,6 +288,9 @@ function openSlideOverlay(target) {
 
 function closeSlideOverlay(overlay) {
   overlay.classList.remove('is-open');
+  if (overlay.id === 'case-study-overlay') {
+    overlay.classList.remove('case-study-overlay--theme-light');
+  }
   overlay.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('no-scroll');
   // Reset all triggers
@@ -296,7 +333,7 @@ function initSlideOverlays() {
     });
   });
 
-  // Case study card triggers
+  // Case study card triggers (theme: default slate vs data-case-study-theme="light")
   caseStudyTriggers.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -304,6 +341,8 @@ function initSlideOverlays() {
         closeSlideOverlay(caseStudy);
         return;
       }
+      const theme = link.getAttribute('data-case-study-theme');
+      caseStudy?.classList.toggle('case-study-overlay--theme-light', theme === 'light');
       _slideLastOpener = link;
       openSlideOverlay(caseStudy);
     });
@@ -314,15 +353,9 @@ function initSlideOverlays() {
     p.querySelector('.skeleton-slide-overlay__close')?.addEventListener('click', () => closeSlideOverlay(p));
   });
 
-  // "← All projects" link in case study
-  caseStudy?.querySelector('.case-study__back a')?.addEventListener('click', (e) => {
-    e.preventDefault();
+  // "← All projects" — close overlay; scroll is handled by global a[href="#projects"] listener (registered later)
+  caseStudy?.querySelector('.case-study__back a')?.addEventListener('click', () => {
     closeSlideOverlay(caseStudy);
-    const projects = document.getElementById('projects');
-    if (projects) {
-      projects.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (location.hash !== '#projects') history.replaceState(null, '', '#projects');
-    }
   });
 
   // Escape key closes active overlay
@@ -577,7 +610,7 @@ function initPhysicsLetters() {
       const c = document.createElement('canvas');
       c.width = Math.max(1, w); c.height = Math.max(1, h);
       const ctx = c.getContext('2d');
-      ctx.fillStyle = '#2e2e2b';
+      ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, c.width, c.height);
       return c.toDataURL();
     }
