@@ -1092,9 +1092,12 @@ button.nav__link { font: inherit; color: inherit; }
 /* ==========================================================================
    JOURNAL OVERLAY — photo mosaic grid
    ========================================================================== */
-.journal-mosaic--overlay {
-  padding-block: clamp(0.5rem, 1.5vw, 1rem) var(--section-y);
+#journal-overlay .page-container {
   padding-inline: 0;
+}
+.journal-mosaic--overlay {
+  padding: 0;
+  min-width: 0;
 }
 .journal-grid {
   display: grid;
