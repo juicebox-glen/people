@@ -283,11 +283,13 @@ input, textarea, select { font-family: inherit; color: inherit; }
   transition: all 25ms;
   display: none; /* shown at tablet+ */
 }
-/* Shared mono: nav links, Studio hero label, beliefs intro label */
+/* Shared mono: nav links, Studio hero label, beliefs + process labels, home services labels */
 .nav__link,
 button.nav__link,
 #studio-overlay .studio-slide-hero__label,
-#studio-overlay .studio-beliefs-intro__label {
+#studio-overlay .studio-beliefs-intro__label,
+#studio-overlay .process__label,
+.home-services__label {
   font-family: var(--font-mono-ufficio);
   font-size: var(--chrome-mono-fs);
   font-weight: 400;
@@ -553,6 +555,13 @@ button.nav__link { color: inherit; }
   min-height: 100dvh;
   position: relative;
 }
+
+/* Homepage: scroll area only as tall as content + comfortable end padding (no full-viewport gap) */
+.section-spacer--home {
+  height: auto;
+  min-height: 0;
+  padding-block: clamp(2.75rem, 9vw, 5.5rem);
+}
 .footer-reveal-sentinel {
   width: 100%; height: 1px; margin: 0;
   pointer-events: none; visibility: hidden;
@@ -790,6 +799,103 @@ button.nav__link { color: inherit; }
 
 
 /* ==========================================================================
+   HOME — Services & sectors (aligned to .products-grid column; tight under projects)
+   ========================================================================== */
+.featured:has(+ .home-services) {
+  padding-bottom: clamp(2.75rem, 7vw, 5.5rem);
+}
+
+.home-services {
+  padding: clamp(1.5rem, 3.5vw, 2.75rem) 0 clamp(2rem, 5vw, 3.5rem);
+  scroll-margin-top: calc(var(--nav-height) + 0.75rem);
+}
+
+/* Same two-column shell as projects; rail has no label — hidden on small screens */
+.home-services__grid-wrap {
+  margin-top: 0;
+}
+
+.featured__sidebar--empty {
+  display: none;
+  min-height: 0;
+}
+
+@media (min-width: 768px) {
+  .featured__sidebar--empty {
+    display: block;
+  }
+
+  .home-services .featured__sidebar--empty {
+    position: static;
+  }
+}
+
+.home-services__split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+  margin-top: 0;
+}
+
+.home-services__col {
+  border-top: 1px solid rgba(var(--ink-rgb), 0.18);
+  padding-top: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.home-services__label {
+  display: block;
+  margin: 0 0 clamp(0.65rem, 1.8vw, 1rem);
+  opacity: 0.85;
+  color: var(--ink);
+}
+
+.home-services__col > p:not(.home-services__label) {
+  font-size: clamp(1rem, 1.65vw, 1.1875rem);
+  font-weight: 200;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 36rem;
+}
+
+.home-services__col > p:not(.home-services__label) + .home-services__list {
+  margin-top: clamp(1.35rem, 3.5vw, 2.25rem);
+}
+
+.home-services__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.home-services__list li {
+  font-family: var(--font-headline);
+  font-weight: 500;
+  font-size: clamp(1.35rem, 2.85vw, 2.125rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.home-services__list li + li {
+  margin-top: 0.2em;
+}
+
+@media (min-width: 768px) {
+  .home-services__split {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    align-items: start;
+  }
+
+  .home-services__col--sectors {
+    border-left: 1px solid rgba(var(--ink-rgb), 0.18);
+    padding-left: clamp(1rem, 2.5vw, 2rem);
+  }
+}
+
+
+/* ==========================================================================
    PROCESS — stacking cards (sticky + stepped top; scroll only)
    ========================================================================== */
 .process {
@@ -811,28 +917,16 @@ button.nav__link { color: inherit; }
 
 .process__label {
   display: block;
-  font-family: var(--font-mono-ufficio);
-  font-size: clamp(0.5625rem, 1.15vw, 0.78rem);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  opacity: 0.72;
-  margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+  margin: 0 0 clamp(0.75rem, 2vw, 1.25rem);
 }
-
-.process__body {
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  opacity: 0.82;
-  font-weight: 300;
-  margin: 0;
-}
-.process__body + .process__body {
-  margin-top: 0.85em;
+#studio-overlay .process__label {
+  color: var(--ink);
+  opacity: 0.85;
 }
 
 .process__cards {
+  /* Peek of each card above: same increment per step (sticky top) */
+  --process-stack-step: 30px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -879,16 +973,6 @@ button.nav__link { color: inherit; }
   margin: 0;
 }
 
-.process__card-body {
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  font-weight: 300;
-  opacity: 0.85;
-  max-width: 34rem;
-  margin: 0;
-}
-
 @media (min-width: 768px) {
   .process__grid {
     grid-template-columns: 0.4fr 0.6fr;
@@ -908,7 +992,7 @@ button.nav__link { color: inherit; }
 
   .process__card {
     position: sticky;
-    top: calc(var(--nav-height) + 2rem + (var(--card-index, 0) * 30px));
+    top: calc(var(--nav-height) + 2rem + var(--card-index, 0) * var(--process-stack-step));
     border-radius: clamp(10px, 1.5vw, 16px);
   }
 
@@ -928,12 +1012,17 @@ button.nav__link { color: inherit; }
   #studio-overlay .process__text {
     top: 1rem;
   }
+  /* Stepped sticky top: each card stops lower by --process-stack-step so the card below stays partially visible */
   #studio-overlay .process__card {
-    top: calc(1rem + (var(--card-index, 0) * 30px));
+    top: calc(1rem + var(--card-index, 0) * var(--process-stack-step));
   }
+  #studio-overlay .process__card:nth-child(1) { z-index: 1; }
+  #studio-overlay .process__card:nth-child(2) { z-index: 2; }
+  #studio-overlay .process__card:nth-child(3) { z-index: 3; }
+  #studio-overlay .process__card:nth-child(4) { z-index: 4; }
   /* Extra scroll room so the last card can fully stack into the column */
   #studio-overlay .process__cards {
-    padding-bottom: clamp(6rem, 22vh, 14rem);
+    padding-bottom: clamp(8rem, 28vh, 18rem);
   }
 }
 
@@ -1234,13 +1323,27 @@ button.nav__link { color: inherit; }
   color: var(--ink);
   opacity: 0.85;
 }
-#studio-overlay .studio-beliefs-intro__text {
+/* Beliefs intro + Process — shared body copy (plain <p>, matches beliefs intro) */
+#studio-overlay .studio-beliefs-intro > p:not(.studio-beliefs-intro__label),
+#studio-overlay .process__text > p:not(.process__label) {
   margin: 0;
   font-size: clamp(1rem, 1.65vw, 1.1875rem);
   font-weight: 200;
   line-height: 1.55;
   letter-spacing: -0.01em;
   color: var(--ink);
+}
+#studio-overlay .process__text > p:not(.process__label) + p {
+  margin-top: 0.85em;
+}
+#studio-overlay .process__card-inner > p {
+  margin: 0;
+  font-size: clamp(1rem, 1.65vw, 1.1875rem);
+  font-weight: 200;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: inherit;
+  max-width: 34rem;
 }
 
 /* Marquee rows — space below intro; rule sits on first viewport top (not on intro) */

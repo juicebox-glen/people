@@ -189,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       if (menu?.classList.contains('is-open')) setMenuOpen(false);
+      closeAllSlideOverlays();
       scrollToProjectsSection();
     });
   });
@@ -302,6 +303,12 @@ function closeSlideOverlay(overlay) {
   }
 }
 
+function closeAllSlideOverlays() {
+  document.querySelectorAll('.skeleton-slide-overlay.is-open').forEach((el) => {
+    closeSlideOverlay(el);
+  });
+}
+
 function initSlideOverlays() {
   const journal = document.getElementById('journal-overlay');
   const studio = document.getElementById('studio-overlay');
@@ -354,10 +361,7 @@ function initSlideOverlays() {
     p.querySelector('.skeleton-slide-overlay__close')?.addEventListener('click', () => closeSlideOverlay(p));
   });
 
-  // "← All projects" — close overlay; scroll is handled by global a[href="#projects"] listener (registered later)
-  caseStudy?.querySelector('.case-study__back a')?.addEventListener('click', () => {
-    closeSlideOverlay(caseStudy);
-  });
+  // "← All projects" — close overlay + scroll via global a[href="#projects"] listener
 
   // Escape key closes active overlay
   window.addEventListener('keydown', (e) => {
