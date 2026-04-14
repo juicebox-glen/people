@@ -1,7 +1,7 @@
 /* ============================================================
    PEOPLE — Site Scripts (consolidated)
    Page transition · Slide overlays · Mobile menu · Wordmark morph
-   Contact scroll · Vimeo hero · Matter.js · Case study interactions
+   Contact scroll · Vimeo hero · Matter.js · Case study interactions · Studio hero rotate
    ============================================================ */
 
 /** Nav offset for #projects only when sticky bar is flush to the top (avoids empty band when nav is off-screen). */
@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
      SLIDE OVERLAYS — Journal, Studio, Case Study panels
      ================================================================ */
   initSlideOverlays();
+  initStudioHeroImageRotate();
 
 
   /* ================================================================
@@ -366,6 +367,43 @@ function initSlideOverlays() {
     e.preventDefault();
     closeSlideOverlay(open);
   });
+}
+
+/**
+ * Studio overlay hero: cycle studio-1 → studio-2 → studio-3 while panel is open.
+ */
+function initStudioHeroImageRotate() {
+  const overlay = document.getElementById('studio-overlay');
+  const img = overlay?.querySelector('.studio-slide-hero__img[data-studio-hero-rotate]');
+  if (!overlay || !img) return;
+
+  const srcs = [1, 2, 3].map((n) => new URL(`images/studio-${n}.png`, window.location.href).href);
+  let idx = 0;
+  let timer = null;
+  const INTERVAL_MS = 5000;
+
+  function clearTimer() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function syncFromOpenState() {
+    const open = overlay.classList.contains('is-open');
+    clearTimer();
+    if (!open) return;
+    idx = 0;
+    img.src = srcs[0];
+    timer = setInterval(() => {
+      idx = (idx + 1) % srcs.length;
+      img.src = srcs[idx];
+    }, INTERVAL_MS);
+  }
+
+  const obs = new MutationObserver(syncFromOpenState);
+  obs.observe(overlay, { attributes: true, attributeFilter: ['class'] });
+  syncFromOpenState();
 }
 
 
