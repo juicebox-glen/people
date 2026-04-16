@@ -1573,6 +1573,15 @@ button.nav__link { color: inherit; }
   border-top-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Two separate case studies in the overlay — show one via JS (.case-study-overlay--content-*) */
+#case-study-overlay .case-study-panel {
+  display: none;
+}
+#case-study-overlay.case-study-overlay--content-cork .case-study-panel--cork,
+#case-study-overlay.case-study-overlay--content-field .case-study-panel--field {
+  display: block;
+}
+
 .case-study--groth { margin: 0; padding: 0; max-width: none; }
 
 .case-study__band { position: relative; }
@@ -1644,7 +1653,9 @@ button.nav__link { color: inherit; }
 .case-study__meta-col {
   display: flex; flex-direction: column; gap: 1.35rem; min-width: 0;
 }
-.case-study__meta-label {
+/* Hero meta + metrics table — same mono label style */
+.case-study__meta-label,
+.case-study__metrics__label {
   font-family: var(--font-mono);
   font-size: clamp(0.5625rem, 1vw, 0.75rem);
   font-weight: 400;
@@ -1652,6 +1663,8 @@ button.nav__link { color: inherit; }
   text-transform: uppercase;
   line-height: 1.35;
   opacity: 0.85;
+}
+.case-study__meta-label {
   margin: 0 0 0.35rem;
 }
 .case-study__meta-value {
@@ -1963,32 +1976,75 @@ button.nav__link { color: inherit; }
   transform: translate(-50%, -50%);
 }
 
-/* Metrics table */
-.case-study__metrics-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0; }
+/* Metrics — 2 cols × 4 rows; label mono caps + value inline */
+.case-study__metrics-wrap { margin: 0; }
 .case-study__metrics {
-  width: 100%; min-width: 280px; border-collapse: collapse;
-  font-size: var(--type-supporting-fs); line-height: var(--type-supporting-lh); font-weight: 300;
+  width: 100%;
+  min-width: 0;
+  font-size: var(--type-supporting-fs);
+  line-height: var(--type-supporting-lh);
+  font-weight: 300;
 }
-.case-study__metrics td {
-  border-bottom: 1px solid rgba(0,0,0,.12);
-  padding: .75rem 1rem .75rem 0; vertical-align: top;
+.case-study__metrics--two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(1.25rem, 4vw, 3rem);
+  align-items: start;
 }
-.case-study__metrics td:first-child { font-style: italic; opacity: .75; width: 46%; padding-right: 1.5rem; }
-.case-study__metrics tr:last-child td { border-bottom: 1px solid rgba(0,0,0,.35); }
+.case-study__metrics__group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.case-study__metrics__row {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  gap: 0.65rem 1rem;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.75rem 0;
+}
+.case-study__metrics__row--end {
+  border-bottom-color: rgba(0, 0, 0, 0.35);
+}
+.case-study__metrics__value {
+  font-size: var(--type-supporting-fs);
+  line-height: var(--type-supporting-lh);
+  font-weight: 300;
+  min-width: 0;
+}
+@media (max-width: 639px) {
+  .case-study__metrics--two-col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
 
-/* Back + credit */
+/* Next project — right-aligned, modest headline + arrow */
 .case-study__back { margin: clamp(2rem, 4vw, 3rem) 0 0; font-size: var(--type-supporting-fs); }
-.case-study__back a {
-  color: inherit; text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  transition: opacity .2s ease;
+.case-study__back--next {
+  margin: clamp(2.5rem, 6vw, 3.75rem) 0 0;
+  text-align: right;
+  width: 100%;
 }
-.case-study__back a:hover { opacity: .65; }
-.case-study__credit {
-  font-family: var(--font-headline); font-weight: 500;
-  font-size: var(--type-overline-fs); text-transform: uppercase;
-  letter-spacing: var(--type-overline-ls); margin: 1.75rem 0 0; opacity: .45;
+.case-study__back--next .case-study__next-link {
+  font-family: var(--font-headline);
+  font-size: clamp(1.25rem, 2.75vw, 1.875rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: none;
+  transition: opacity 0.2s ease;
+  display: inline-block;
 }
+.case-study__back--next .case-study__next-arrow {
+  display: inline-block;
+  margin-left: 0.2em;
+  font-weight: 500;
+}
+.case-study__back--next .case-study__next-link:hover { opacity: 0.72; }
 
 /* Portrait/landscape skeleton media */
 .case-study__media .skeleton-ph { width: 100%; aspect-ratio: 4/5; min-height: 0; display: block; }

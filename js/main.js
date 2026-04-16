@@ -304,6 +304,7 @@ function openSlideOverlay(target) {
       el.setAttribute('aria-hidden', 'true');
       if (el.id === 'case-study-overlay') {
         el.classList.remove('case-study-overlay--theme-light');
+        el.classList.remove('case-study-overlay--content-cork', 'case-study-overlay--content-field');
       }
       unlockBodyScroll();
     }
@@ -322,6 +323,9 @@ function closeSlideOverlay(overlay) {
   overlay.classList.remove('is-open');
   if (overlay.id === 'case-study-overlay') {
     overlay.classList.remove('case-study-overlay--theme-light');
+    overlay.classList.remove('case-study-overlay--content-cork', 'case-study-overlay--content-field');
+    const ct = document.getElementById('case-study-overlay-title');
+    if (ct) ct.textContent = 'PROJECT';
   }
   overlay.setAttribute('aria-hidden', 'true');
   unlockBodyScroll();
@@ -371,7 +375,24 @@ function initSlideOverlays() {
     });
   });
 
-  // Case study card triggers (theme: default slate vs data-case-study-theme="light")
+  function slideDurationMs() {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue('--slide-duration').trim();
+    const n = parseFloat(raw);
+    return Number.isFinite(n) ? n * 1000 : 720;
+  }
+
+  function applyCaseStudyFromTrigger(link) {
+    if (!caseStudy || !link) return;
+    const theme = link.getAttribute('data-case-study-theme');
+    caseStudy.classList.toggle('case-study-overlay--theme-light', theme === 'light');
+    const slug = link.getAttribute('data-case-study-content') || 'cork';
+    caseStudy.classList.remove('case-study-overlay--content-cork', 'case-study-overlay--content-field');
+    caseStudy.classList.add(`case-study-overlay--content-${slug}`);
+    const titleEl = document.getElementById('case-study-overlay-title');
+    if (titleEl) titleEl.textContent = 'PROJECT';
+  }
+
+  // Case study card triggers (content slug + theme)
   caseStudyTriggers.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -379,10 +400,31 @@ function initSlideOverlays() {
         closeSlideOverlay(caseStudy);
         return;
       }
-      const theme = link.getAttribute('data-case-study-theme');
-      caseStudy?.classList.toggle('case-study-overlay--theme-light', theme === 'light');
+      applyCaseStudyFromTrigger(link);
       _slideLastOpener = link;
       openSlideOverlay(caseStudy);
+    });
+  });
+
+  // Next project — close panel, then reopen with next homepage case-study card (cycle)
+  document.querySelectorAll('[data-case-study-next]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!caseStudy?.classList.contains('is-open')) return;
+      const triggers = [...document.querySelectorAll('[data-skeleton-case-study]')];
+      if (!triggers.length) return;
+      let idx = triggers.indexOf(_slideLastOpener);
+      if (idx < 0) idx = triggers.length - 1;
+      const next = triggers[(idx + 1) % triggers.length];
+      _slideLastOpener = null;
+      closeSlideOverlay(caseStudy);
+      const wait = Math.round(slideDurationMs() * 0.92);
+      window.setTimeout(() => {
+        applyCaseStudyFromTrigger(next);
+        _slideLastOpener = next;
+        openSlideOverlay(caseStudy);
+        caseStudy.querySelector('.skeleton-slide-overlay__body')?.scrollTo(0, 0);
+      }, wait);
     });
   });
 
@@ -390,8 +432,6 @@ function initSlideOverlays() {
   panels.forEach((p) => {
     p.querySelector('.skeleton-slide-overlay__close')?.addEventListener('click', () => closeSlideOverlay(p));
   });
-
-  // "← All projects" — close overlay + scroll via global a[href="#projects"] listener
 
   // Escape key closes active overlay
   window.addEventListener('keydown', (e) => {
