@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>PEOPLE — Design tokens &amp; typography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/design-tokens-preview.css">
 </head>
@@ -68,9 +71,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td><code>--font-body</code></td><td>Ufficio 300, system-ui, sans-serif</td></tr>
+            <tr><td><code>--font-body</code></td><td>DM Sans 300–500, system-ui, sans-serif</td></tr>
             <tr><td><code>--font-headline</code></td><td>Ufficio 500, system-ui, sans-serif</td></tr>
-            <tr><td><code>--font-mono</code></td><td>ui-monospace, Courier New, monospace</td></tr>
+            <tr><td><code>--font-mono</code></td><td>DM Mono 400–500, ui-monospace</td></tr>
             <tr><td><code>--page-bg</code></td><td>#FFF6EE</td></tr>
             <tr><td><code>--page-bg-rgb</code></td><td>255, 246, 238</td></tr>
             <tr><td><code>--ink</code></td><td>#000 (loading / default text)</td></tr>
@@ -91,7 +94,7 @@
 
     <!-- Font files -->
     <section class="dt-section" aria-labelledby="sec-fonts">
-      <h2 id="sec-fonts" class="dt-section__title">Font files (Ufficio)</h2>
+      <h2 id="sec-fonts" class="dt-section__title">Font files &amp; sources</h2>
       <div class="dt-table-wrap">
         <table class="dt-table">
           <thead>
@@ -103,19 +106,24 @@
           </thead>
           <tbody>
             <tr>
-              <td>300</td>
-              <td><code>fonts/Ufficio-300.ttf</code></td>
-              <td>Body copy, meta paragraphs, case study values</td>
+              <td>300–500</td>
+              <td><code>fonts.googleapis.com</code> · DM Sans</td>
+              <td>Body copy (<code>--font-body</code>)</td>
+            </tr>
+            <tr>
+              <td>400–500</td>
+              <td><code>fonts.googleapis.com</code> · DM Mono</td>
+              <td>Nav labels, rails, studio chrome (<code>--font-mono</code>)</td>
             </tr>
             <tr>
               <td>500</td>
               <td><code>fonts/Ufficio-500.ttf</code></td>
-              <td>Headings, labels, nav, buttons, mono-style caps</td>
+              <td>Headlines &amp; display (<code>--font-headline</code>)</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="dt-swatch__note" style="margin-top: 1rem;">Additional Ufficio / PPMori / Ufficio Display / Mono files exist under <code>fonts/</code> for future use; the live stylesheet currently loads 300 + 500 for the main stack.</p>
+      <p class="dt-swatch__note" style="margin-top: 1rem;">Index and token preview pages load DM Sans + DM Mono via Google Fonts; Ufficio 500 remains self-hosted.</p>
     </section>
 
     <!-- Typography samples -->

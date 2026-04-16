@@ -1,21 +1,18 @@
 /* ============================================================
    PEOPLE — Clean Skeleton Rebuild
    Mobile-first · Unified breakpoints · Single stylesheet
-   Typeface: Ufficio 300 (body) · Ufficio 500 (headlines/labels)
+   Typeface: DM Sans (body) · Ufficio 500 (headlines) · DM Mono (mono chrome)
    ============================================================ */
 
 /* --- Font Faces ------------------------------------------------ */
-@font-face { font-family:'Ufficio'; src:url('../fonts/Ufficio-300.ttf') format('truetype'); font-weight:300; font-style:normal; font-display:swap; }
 @font-face { font-family:'Ufficio'; src:url('../fonts/Ufficio-500.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
 
 /* --- Custom Properties ----------------------------------------- */
 :root {
-  /* Typography */
-  --font-body: 'Ufficio', system-ui, sans-serif;
+  /* Typography — DM Sans + DM Mono via Google Fonts in HTML; Ufficio 500 local for headlines */
+  --font-body: 'DM Sans', system-ui, sans-serif;
   --font-headline: 'Ufficio', system-ui, sans-serif;
-  --font-mono: ui-monospace, 'Courier New', monospace;
-  /* Slide panel titles (Figma: Ufficio Mono); falls back until a Mono file is added */
-  --font-mono-ufficio: 'Ufficio Mono', ui-monospace, 'Courier New', monospace;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
   /* Nav + Studio hero label + beliefs intro label (shared mono) */
   --chrome-mono-fs: clamp(0.71875rem, 1.28vw, 1.0625rem);
   --chrome-mono-ls: 1px;
@@ -290,7 +287,7 @@ button.nav__link,
 #studio-overlay .studio-beliefs-intro__label,
 #studio-overlay .process__label,
 .home-services__label {
-  font-family: var(--font-mono-ufficio);
+  font-family: var(--font-mono);
   font-size: var(--chrome-mono-fs);
   font-weight: 400;
   letter-spacing: var(--chrome-mono-ls);
@@ -837,11 +834,6 @@ button.nav__link { color: inherit; }
   margin-top: 0;
 }
 
-.home-services__col {
-  border-top: 1px solid rgba(var(--ink-rgb), 0.18);
-  padding-top: clamp(1rem, 2.5vw, 1.5rem);
-}
-
 .home-services__label {
   display: block;
   margin: 0 0 clamp(0.65rem, 1.8vw, 1rem);
@@ -1181,7 +1173,7 @@ button.nav__link { color: inherit; }
 /* Slide panel title (Journal, Project, Studio) + product card name — same mono treatment */
 .skeleton-slide-overlay__title,
 .product-card__name {
-  font-family: var(--font-mono-ufficio);
+  font-family: var(--font-mono);
   font-size: var(--slide-panel-title-fs);
   font-weight: 400;
   letter-spacing: var(--slide-panel-title-ls);
@@ -1564,8 +1556,10 @@ button.nav__link { color: inherit; }
 }
 .case-study__inner--wide { padding-top: 0; }
 .case-study__rail {
-  width: 100%; max-width: 72rem;
-  margin-left: auto; margin-right: auto;
+  width: 100%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Shared 2-col grid: stacks on mobile */
