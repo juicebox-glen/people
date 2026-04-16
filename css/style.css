@@ -1711,12 +1711,16 @@ button.nav__link { color: inherit; }
   overflow: visible;
 }
 .case-study__hero-img {
-  width: 100%; height: auto; display: block;
-  vertical-align: middle; object-fit: cover;
-  max-height: min(85vh, 56rem);
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+  object-fit: cover;
 }
 .case-study__hero-img.skeleton-ph {
-  object-fit: unset; aspect-ratio: 4/5;
+  object-fit: unset;
+  aspect-ratio: 16 / 9;
 }
 #case-study-overlay .case-study__hero-img--theme-light {
   display: none;
@@ -2063,12 +2067,12 @@ button.nav__link { color: inherit; }
 
 .case-study__plan-img {
   width: 100%;
-  aspect-ratio: 16/10;
-  max-height: min(75vh, 48rem);
+  aspect-ratio: 16 / 9;
   display: block;
+  object-fit: cover;
 }
 .case-study__plan-img.skeleton-ph {
-  aspect-ratio: 16/10;
+  aspect-ratio: 16 / 9;
 }
 
 .case-study__media > img:not(.case-study__plan-img),
