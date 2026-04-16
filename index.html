@@ -97,7 +97,7 @@
       <div class="page-container">
 
         <!-- PROJECTS / FEATURED -->
-        <section class="featured skeleton-page-featured" id="projects" aria-labelledby="intro-heading">
+        <section class="featured skeleton-page-featured" aria-labelledby="intro-heading">
           <div class="home-intro">
             <h2 class="home-intro__heading" id="intro-heading">
               <span class="home-intro__copy">
@@ -107,7 +107,7 @@
             </h2>
           </div>
 
-          <div class="featured__grid-wrap">
+          <div class="featured__grid-wrap" id="projects">
             <div class="featured__sidebar">
               <h3>Projects</h3>
             </div>
@@ -122,7 +122,7 @@
                 <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
               </a>
               <a href="#" class="product-card" data-skeleton-case-study data-case-study-theme="light" aria-haspopup="dialog" aria-controls="case-study-overlay">
-                <img class="product-card__img" src="images/project-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
+                <img class="product-card__img" src="images/cork-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <h4 class="product-card__name">Hooded Sweater</h4>
                 <span class="product-card__arrow" aria-hidden="true">
                   <img class="product-card__arrow-icon product-card__arrow-icon--key" src="images/key.svg" alt="" width="89" height="46" decoding="async">
@@ -140,7 +140,7 @@
                 <div class="product-card__overlay"><div class="product-card__blur"></div><span class="product-card__view">View</span></div>
               </a>
               <a href="#" class="product-card" data-skeleton-case-study data-case-study-theme="light" aria-haspopup="dialog" aria-controls="case-study-overlay">
-                <img class="product-card__img" src="images/project-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
+                <img class="product-card__img" src="images/cork-hero.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                 <h4 class="product-card__name">Hooded Sweater</h4>
                 <span class="product-card__arrow" aria-hidden="true">
                   <img class="product-card__arrow-icon product-card__arrow-icon--key" src="images/key.svg" alt="" width="89" height="46" decoding="async">
@@ -463,9 +463,15 @@
                     <div class="case-study__meta-item">
                       <p class="case-study__meta-label">Materials</p>
                       <div class="case-study__material-swatches" role="list">
-                        <span class="case-study__material-swatch case-study__material-swatch--a" role="listitem" aria-label="Recycled rubber"></span>
-                        <span class="case-study__material-swatch case-study__material-swatch--b" role="listitem" aria-label="UV-stable binders"></span>
-                        <span class="case-study__material-swatch case-study__material-swatch--c" role="listitem" aria-label="Surface composite"></span>
+                        <span class="case-study__material-swatch" role="listitem" aria-label="Recycled rubber">
+                          <img src="images/material-1.png" alt="" width="120" height="120" loading="lazy" decoding="async">
+                        </span>
+                        <span class="case-study__material-swatch" role="listitem" aria-label="UV-stable binders">
+                          <img src="images/material-2.png" alt="" width="120" height="120" loading="lazy" decoding="async">
+                        </span>
+                        <span class="case-study__material-swatch" role="listitem" aria-label="Surface composite">
+                          <img src="images/material-3.png" alt="" width="120" height="120" loading="lazy" decoding="async">
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -476,7 +482,7 @@
             <figure class="case-study__hero-figure">
               <img
                 class="case-study__hero-img case-study__hero-img--theme-slate"
-                src="images/illo.png"
+                src="images/case-study-1.png"
                 alt=""
                 loading="lazy"
                 decoding="async"
@@ -484,7 +490,7 @@
                 height="718">
               <img
                 class="case-study__hero-img case-study__hero-img--theme-light"
-                src="images/project-1.png"
+                src="images/cork-hero.png"
                 alt=""
                 loading="lazy"
                 decoding="async"
@@ -513,12 +519,12 @@
                 <div class="case-study__rail">
                   <div class="case-study__pair-images case-study__hero-grid">
                     <figure class="case-study__media case-study__media--portrait case-study__pair-images__sm">
-                      <div class="skeleton-ph" role="presentation" aria-hidden="true"></div>
+                      <img src="images/cork-1.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                     </figure>
                     <figure class="case-study__media case-study__media--portrait case-study__pair-images__lg case-study__media--hotspots">
                       <div class="case-study__hotspot-stage">
                         <div class="case-study__hotspot-stage__img-wrap">
-                          <div class="skeleton-ph" role="presentation" aria-hidden="true"></div>
+                          <img src="images/cork-2.png" alt="" loading="lazy" decoding="async" width="1080" height="1350">
                         </div>
                         <button type="button" class="case-study__img-hotspot" style="left:22%;top:38%;" aria-label="Surface layer: recycled rubber blend." aria-expanded="false">
                           <span class="case-study__img-hotspot__dot" aria-hidden="true"></span>
@@ -553,21 +559,14 @@
               </div>
 
               <div class="case-study__block case-study__block--fullbleed">
-                <div class="case-study__parallax-plan" data-parallax-plan>
-                  <div class="case-study__parallax-plan__base">
-                    <div class="skeleton-ph" role="presentation" aria-hidden="true"></div>
-                  </div>
-                  <div class="case-study__parallax-plan__layers" aria-hidden="true">
-                    <div class="case-study__parallax-plan__float skeleton-ph" data-parallax-speed="0.12" style="--fp-left:5%;--fp-top:8%;--fp-w:15%;"></div>
-                    <div class="case-study__parallax-plan__float skeleton-ph" data-parallax-speed="-0.16" style="--fp-left:70%;--fp-top:14%;--fp-w:14%;"></div>
-                    <div class="case-study__parallax-plan__float skeleton-ph" data-parallax-speed="0.2" style="--fp-left:40%;--fp-top:48%;--fp-w:13%;"></div>
-                  </div>
-                </div>
+                <figure class="case-study__media case-study__media--plan case-study__media--landscape">
+                  <img class="case-study__plan-img" src="images/cork-3.png" alt="" loading="lazy" decoding="async" width="1440" height="1800">
+                </figure>
               </div>
 
               <div class="case-study__block case-study__block--materials">
                 <div class="case-study__rail">
-                  <div class="case-study__materials-grid">
+                  <div class="case-study__materials-grid case-study__hero-grid">
                     <div class="case-study__materials-copy">
                       <div class="case-study__materials-copy__item">
                         <h3 class="case-study__materials-copy__head">Cork &amp; recycled rubber</h3>
@@ -582,30 +581,50 @@
                         <p class="case-study__materials-copy__body">The outdoor segment system is judged on accelerated UV cycles and real club sessions alike.</p>
                       </div>
                     </div>
-                    <p class="case-study__materials-label">/ Materials</p>
-                    <ul class="case-study__materials-circles" role="list">
-                      <li>
-                        <button type="button" class="case-study__material-circle" aria-label="Cork material">
-                          <span class="case-study__material-circle__inner">
-                            <span class="case-study__material-circle__photo" aria-hidden="true"></span>
-                          </span>
-                        </button>
-                      </li>
-                      <li>
-                        <button type="button" class="case-study__material-circle" aria-label="Rubber material">
-                          <span class="case-study__material-circle__inner">
-                            <span class="case-study__material-circle__photo" aria-hidden="true"></span>
-                          </span>
-                        </button>
-                      </li>
-                      <li>
-                        <button type="button" class="case-study__material-circle" aria-label="Surface material">
-                          <span class="case-study__material-circle__inner">
-                            <span class="case-study__material-circle__photo" aria-hidden="true"></span>
-                          </span>
-                        </button>
-                      </li>
-                    </ul>
+                    <div class="case-study__materials-rail">
+                      <p class="case-study__materials-label">/ Materials</p>
+                      <ul class="case-study__materials-circles" role="list">
+                        <li>
+                          <button type="button" class="case-study__material-circle" aria-label="Cork &amp; recycled rubber">
+                            <span class="case-study__material-circle__inner">
+                              <span class="case-study__material-circle__photo" aria-hidden="true">
+                                <img src="images/material-4.png" alt="" width="120" height="120" loading="lazy" decoding="async">
+                              </span>
+                              <span class="product-card__overlay" aria-hidden="true">
+                                <span class="product-card__blur"></span>
+                                <span class="product-card__view">Cork &amp; recycled rubber</span>
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button" class="case-study__material-circle" aria-label="Linseed-finished timber">
+                            <span class="case-study__material-circle__inner">
+                              <span class="case-study__material-circle__photo" aria-hidden="true">
+                                <img src="images/material-5.png" alt="" width="120" height="120" loading="lazy" decoding="async">
+                              </span>
+                              <span class="product-card__overlay" aria-hidden="true">
+                                <span class="product-card__blur"></span>
+                                <span class="product-card__view">Linseed-finished timber</span>
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button" class="case-study__material-circle" aria-label="UV-stable surface system">
+                            <span class="case-study__material-circle__inner">
+                              <span class="case-study__material-circle__photo" aria-hidden="true">
+                                <img src="images/material-6.png" alt="" width="120" height="120" loading="lazy" decoding="async">
+                              </span>
+                              <span class="product-card__overlay" aria-hidden="true">
+                                <span class="product-card__blur"></span>
+                                <span class="product-card__view">UV-stable surface system</span>
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>

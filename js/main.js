@@ -24,6 +24,33 @@ function scrollToProjectsSection() {
   if (location.hash !== '#projects') history.replaceState(null, '', '#projects');
 }
 
+/** Scroll lock depth — intro, mobile menu, and slide overlays can nest (e.g. intro + menu). */
+let _scrollLockDepth = 0;
+let _savedScrollY = 0;
+
+function lockBodyScroll() {
+  if (_scrollLockDepth === 0) {
+    _savedScrollY = window.scrollY;
+    document.documentElement.style.setProperty('--scroll-lock-top', `-${_savedScrollY}px`);
+    document.body.classList.add('no-scroll');
+  }
+  _scrollLockDepth++;
+}
+
+function unlockBodyScroll() {
+  _scrollLockDepth = Math.max(0, _scrollLockDepth - 1);
+  if (_scrollLockDepth > 0) return;
+  const html = document.documentElement;
+  const prevScrollBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
+  document.body.classList.remove('no-scroll');
+  document.documentElement.style.removeProperty('--scroll-lock-top');
+  window.scrollTo(0, _savedScrollY);
+  requestAnimationFrame(() => {
+    html.style.scrollBehavior = prevScrollBehavior;
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ================================================================
@@ -109,10 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         runIntroSequence();
       }
 
-      document.body.classList.add('no-scroll');
+      lockBodyScroll();
       setTimeout(() => {
-        const menuOpen = document.querySelector('.mobile-menu')?.classList.contains('is-open');
-        if (!menuOpen) document.body.classList.remove('no-scroll');
+        unlockBodyScroll();
       }, PT_INTRO_HIDE_MS);
 
       setTimeout(() => {
@@ -145,7 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function setMenuOpen(open) {
     if (!menu) return;
     menu.classList.toggle('is-open', open);
-    document.body.classList.toggle('no-scroll', open);
+    if (open) lockBodyScroll();
+    else unlockBodyScroll();
     menu.setAttribute('aria-hidden', open ? 'false' : 'true');
     if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
@@ -260,7 +287,6 @@ document.addEventListener('DOMContentLoaded', () => {
      CASE STUDY INTERACTIONS
      ================================================================ */
   initCaseStudyImageHotspots();
-  initCaseStudyParallaxPlan();
 });
 
 
@@ -271,18 +297,22 @@ let _slideLastOpener = null;
 
 function openSlideOverlay(target) {
   if (!target) return;
-  // Close any other open overlay first
+  // Close any other open overlay first (release its scroll lock so depth stays correct)
   document.querySelectorAll('.skeleton-slide-overlay.is-open').forEach((el) => {
     if (el !== target) {
       el.classList.remove('is-open');
       el.setAttribute('aria-hidden', 'true');
+      if (el.id === 'case-study-overlay') {
+        el.classList.remove('case-study-overlay--theme-light');
+      }
+      unlockBodyScroll();
     }
   });
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       target.classList.add('is-open');
       target.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('no-scroll');
+      lockBodyScroll();
       target.querySelector('.skeleton-slide-overlay__close')?.focus({ preventScroll: true });
     });
   });
@@ -294,7 +324,7 @@ function closeSlideOverlay(overlay) {
     overlay.classList.remove('case-study-overlay--theme-light');
   }
   overlay.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('no-scroll');
+  unlockBodyScroll();
   // Reset all triggers
   document.querySelectorAll('[data-skeleton-slide]').forEach((t) => t.setAttribute('aria-expanded', 'false'));
   if (_slideLastOpener) {
@@ -828,35 +858,4 @@ function initCaseStudyImageHotspots() {
     if (e.key !== 'Escape') return;
     hotspots.forEach((b) => { b.classList.remove('is-active'); b.setAttribute('aria-expanded', 'false'); });
   });
-}
-
-
-/* ============================================================
-   CASE STUDY — parallax floor plan floats
-   ============================================================ */
-function initCaseStudyParallaxPlan() {
-  const root = document.querySelector('[data-parallax-plan]');
-  if (!root) return;
-  const floats = root.querySelectorAll('[data-parallax-speed]');
-  if (!floats.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  let ticking = false;
-  function update() {
-    ticking = false;
-    const rect = root.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const offset = (rect.top + rect.height / 2) - (vh / 2);
-    floats.forEach((el) => {
-      const speed = parseFloat(el.getAttribute('data-parallax-speed') || '0.15');
-      const y = Number.isFinite(speed) ? offset * speed : 0;
-      el.style.transform = `translate3d(0, ${y}px, 0)`;
-    });
-  }
-  function onScroll() {
-    if (!ticking) { ticking = true; requestAnimationFrame(update); }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  update();
 }

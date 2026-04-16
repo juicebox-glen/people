@@ -15,7 +15,7 @@
   <header class="dt-header">
     <h1 class="dt-title">Design tokens &amp; typography</h1>
     <p class="dt-lede">
-      Reference for colours and type used across the site. Source of truth remains <code>css/style.css</code>; use this page to align new work and consolidate duplicates over time.
+      Reference for colours and type used across the site. Source of truth remains <code>css/style.css</code> (<code>:root</code> tokens + component rules). Editorial copy uses a shared fluid scale; case study body uses a fixed long-form scale; uppercase micro-labels share one overline token.
     </p>
     <p class="dt-meta">Internal preview · not linked from production nav</p>
   </header>
@@ -90,6 +90,32 @@
           </tbody>
         </table>
       </div>
+    </section>
+
+    <!-- Typography tokens -->
+    <section class="dt-section" aria-labelledby="sec-type-tokens">
+      <h2 id="sec-type-tokens" class="dt-section__title">Typography scale (:root)</h2>
+      <p class="dt-swatch__note" style="margin: 0 0 1rem;">Use these instead of one-off <code>font-size</code> / <code>letter-spacing</code> values for new UI. Mono chrome and slide titles are separate from body prose.</p>
+      <div class="dt-table-wrap">
+        <table class="dt-table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--type-prose-fluid-fs</code> (+ weight / lh / ls)</td><td>Editorial intros — studio beliefs &amp; process, home services intros, process cards</td></tr>
+            <tr><td><code>--type-prose-long-fs</code> (+ lh / weight)</td><td>Case study paragraphs (<code>.case-study__prose</code>)</td></tr>
+            <tr><td><code>--type-display-line-fs</code> (+ lh / ls)</td><td>Large list lines — home services columns</td></tr>
+            <tr><td><code>--type-overline-fs</code> · <code>--type-overline-ls</code></td><td>Uppercase overlines — case study meta &amp; materials, footer block labels, credit</td></tr>
+            <tr><td><code>--type-supporting-fs</code> · <code>--type-supporting-lh</code></td><td>Meta values, metrics table, “all projects” link</td></tr>
+            <tr><td><code>--chrome-mono-fs</code> · <code>--chrome-mono-ls</code></td><td>DM Mono UI — nav, studio hero label, shared with <code>.nav__link</code> rules</td></tr>
+            <tr><td><code>--slide-panel-title-fs</code> · <code>--slide-panel-title-ls</code></td><td>Journal / Studio / Case study overlay <code>h2</code> bar + product card titles</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="dt-swatch__note" style="margin-top: 1rem;">Default <code>body</code> remains <code>1rem</code> / 300 / 1.5 — <code>--font-body</code> (DM Sans). Headlines use <code>--font-headline</code> (Ufficio 500).</p>
     </section>
 
     <!-- Font files -->
@@ -196,7 +222,14 @@
       <div class="dt-preview">
         <div class="case-study__meta-label">Location</div>
         <p class="case-study__meta-value">Dublin</p>
-        <p class="dt-swatch__note"><code>.case-study__meta-label</code> · <code>.case-study__meta-value</code> (300)</p>
+        <p class="dt-swatch__note"><code>.case-study__meta-label</code> uses DM Mono, slightly smaller than nav chrome (<code>clamp(0.5625rem, 1vw, 0.75rem)</code>, <code>--chrome-mono-ls</code>); value uses <code>--type-supporting-fs</code>.</p>
+      </div>
+
+      <h3 class="dt-section__title" style="opacity: .65;">Home services — editorial + display lines</h3>
+      <div class="dt-preview">
+        <p style="font-size: var(--type-prose-fluid-fs); font-weight: var(--type-prose-fluid-weight); line-height: var(--type-prose-fluid-lh); letter-spacing: var(--type-prose-fluid-ls); margin: 0 0 0.75rem; max-width: 28rem;">Intro line using <code>--type-prose-fluid-*</code>.</p>
+        <p style="font-family: var(--font-headline); font-weight: 500; font-size: var(--type-display-line-fs); line-height: var(--type-display-line-lh); letter-spacing: var(--type-display-line-ls); margin: 0;">Display list line</p>
+        <p class="dt-swatch__note" style="margin-top: 0.75rem;">Mirrors <code>.home-services</code> intro copy and list items.</p>
       </div>
 
       <h3 class="dt-section__title" style="opacity: .65;">Footer nav link</h3>
