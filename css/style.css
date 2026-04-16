@@ -1376,6 +1376,10 @@ button.nav__link { color: inherit; }
 #studio-overlay .studio-beliefs-marquee {
   padding-top: calc(40px + clamp(1.25rem, 3vw, 2.25rem));
 }
+/* Marquee moved below process: no intro in-section — tighter top rhythm */
+#studio-overlay .studio-beliefs--skeleton-slide--marquee .studio-beliefs-marquee {
+  padding-top: clamp(1rem, 2.8vw, 1.85rem);
+}
 #studio-overlay .studio-beliefs-marquee__row { border-bottom: 1px solid rgba(0,0,0,.22); }
 #studio-overlay .studio-beliefs-marquee__row:first-child .studio-beliefs-marquee__viewport {
   border-top: 1px solid rgba(0,0,0,.22);
@@ -1439,6 +1443,73 @@ button.nav__link { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   #studio-overlay .studio-beliefs-marquee__track { animation: none; transform: none; }
   #studio-overlay .studio-beliefs-marquee__viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* Studio credentials bar — quiet colophon at bottom of Studio overlay */
+.studio-credentials {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.studio-credentials__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.studio-credentials__marks {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.studio-credentials__mark {
+  width: clamp(2.25rem, 5vw, 3rem);
+  height: clamp(2.25rem, 5vw, 3rem);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.studio-credentials__text {
+  max-width: 36rem;
+}
+
+.studio-credentials__line {
+  font-family: var(--font-mono);
+  font-size: clamp(0.625rem, 1.1vw, 0.75rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  color: #000;
+  opacity: 0.72;
+  margin: 0;
+}
+
+.studio-credentials__line--sub {
+  font-family: var(--font-body);
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: clamp(0.8125rem, 1.3vw, 0.9375rem);
+  line-height: 1.55;
+  margin-top: 0.5rem;
+  opacity: 0.65;
+}
+
+@media (min-width: 768px) {
+  .studio-credentials__inner {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .studio-credentials__marks {
+    flex-direction: column;
+    gap: 0.65rem;
+    padding-top: 0.1rem;
+  }
 }
 
 
