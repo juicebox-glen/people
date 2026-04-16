@@ -967,7 +967,7 @@ button.nav__link { color: inherit; }
 }
 
 .process__card-inner {
-  background: var(--card-bg, #EAE4D7);
+  background: var(--card-bg, #FFF6EE);
   color: var(--card-color, #000);
   padding: clamp(1.5rem, 3vw, 2.5rem);
   border-radius: inherit;
@@ -1016,13 +1016,25 @@ button.nav__link { color: inherit; }
 
   .process__cards {
     gap: 0;
-    padding-bottom: clamp(4rem, 12vh, 10rem);
+    /* Enough runway for the last card to reach its stepped sticky top, without extra scroll that lifts the whole stack */
+    padding-bottom: calc(3 * var(--process-stack-step) + clamp(2.5rem, 6vh, 5rem));
   }
 
   .process__card {
     position: sticky;
-    top: calc(var(--nav-height) + 2rem + var(--card-index, 0) * var(--process-stack-step));
     border-radius: clamp(10px, 1.5vw, 16px);
+  }
+  .process__card:nth-child(1) {
+    top: calc(var(--nav-height) + 2rem + 0 * var(--process-stack-step));
+  }
+  .process__card:nth-child(2) {
+    top: calc(var(--nav-height) + 2rem + 1 * var(--process-stack-step));
+  }
+  .process__card:nth-child(3) {
+    top: calc(var(--nav-height) + 2rem + 2 * var(--process-stack-step));
+  }
+  .process__card:nth-child(4) {
+    top: calc(var(--nav-height) + 2rem + 3 * var(--process-stack-step));
   }
 
   .process__card-inner {
@@ -1042,16 +1054,25 @@ button.nav__link { color: inherit; }
     top: 1rem;
   }
   /* Stepped sticky top: each card stops lower by --process-stack-step so the card below stays partially visible */
-  #studio-overlay .process__card {
-    top: calc(1rem + var(--card-index, 0) * var(--process-stack-step));
+  #studio-overlay .process__card:nth-child(1) {
+    top: calc(1rem + 0 * var(--process-stack-step));
+    z-index: 1;
   }
-  #studio-overlay .process__card:nth-child(1) { z-index: 1; }
-  #studio-overlay .process__card:nth-child(2) { z-index: 2; }
-  #studio-overlay .process__card:nth-child(3) { z-index: 3; }
-  #studio-overlay .process__card:nth-child(4) { z-index: 4; }
-  /* Extra scroll room so the last card can fully stack into the column */
+  #studio-overlay .process__card:nth-child(2) {
+    top: calc(1rem + 1 * var(--process-stack-step));
+    z-index: 2;
+  }
+  #studio-overlay .process__card:nth-child(3) {
+    top: calc(1rem + 2 * var(--process-stack-step));
+    z-index: 3;
+  }
+  #studio-overlay .process__card:nth-child(4) {
+    top: calc(1rem + 3 * var(--process-stack-step));
+    z-index: 4;
+  }
+  /* Match main column: runway for stacking only — large padding let you scroll past the stack and the last card slid up */
   #studio-overlay .process__cards {
-    padding-bottom: clamp(8rem, 28vh, 18rem);
+    padding-bottom: calc(3 * var(--process-stack-step) + clamp(2.5rem, 6vh, 5rem));
   }
 }
 
@@ -1338,7 +1359,7 @@ button.nav__link { color: inherit; }
   grid-template-columns: 1fr;
   gap: clamp(1rem, 3vw, 1.5rem);
   align-items: start;
-  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 @media (min-width: 768px) {
   #studio-overlay .studio-beliefs-intro {
@@ -1376,7 +1397,7 @@ button.nav__link { color: inherit; }
 
 /* Marquee rows — space below intro; rule sits on first viewport top (not on intro) */
 #studio-overlay .studio-beliefs-marquee {
-  padding-top: calc(40px + clamp(0.5rem, 1.5vw, 1rem));
+  padding-top: calc(40px + clamp(1.25rem, 3vw, 2.25rem));
 }
 #studio-overlay .studio-beliefs-marquee__row { border-bottom: 1px solid rgba(0,0,0,.22); }
 #studio-overlay .studio-beliefs-marquee__row:first-child .studio-beliefs-marquee__viewport {
@@ -1422,20 +1443,13 @@ button.nav__link { color: inherit; }
   flex: 0 0 auto;
   white-space: nowrap;
 }
-#studio-overlay .studio-beliefs-marquee__shape {
+#studio-overlay .studio-beliefs-marquee__icon {
   flex-shrink: 0;
   align-self: center;
-  background: rgba(0, 0, 0, 0.14);
-}
-#studio-overlay .studio-beliefs-marquee__shape--rect {
-  width: clamp(2.25rem, 7vw, 4rem);
-  height: clamp(1.5rem, 3.5vw, 2.35rem);
-  border-radius: 4px;
-}
-#studio-overlay .studio-beliefs-marquee__shape--round {
+  display: block;
   width: clamp(1.5rem, 3.5vw, 2.35rem);
   height: clamp(1.5rem, 3.5vw, 2.35rem);
-  border-radius: 50%;
+  object-fit: contain;
 }
 #studio-overlay .studio-beliefs-marquee__chunk {
   flex: 0 0 auto; white-space: nowrap;
