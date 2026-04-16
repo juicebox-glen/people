@@ -1016,25 +1016,15 @@ button.nav__link { color: inherit; }
 
   .process__cards {
     gap: 0;
-    /* Enough runway for the last card to reach its stepped sticky top, without extra scroll that lifts the whole stack */
-    padding-bottom: calc(3 * var(--process-stack-step) + clamp(2.5rem, 6vh, 5rem));
+    /* (n−1) steps + viewport slack so the last card can reach the same sticky top as the others */
+    padding-bottom: calc(3 * var(--process-stack-step) + clamp(5rem, 18vh, 12rem));
   }
 
   .process__card {
     position: sticky;
+    top: calc(var(--nav-height) + 2rem + var(--card-index, 0) * var(--process-stack-step));
+    z-index: calc(1 + var(--card-index, 0));
     border-radius: clamp(10px, 1.5vw, 16px);
-  }
-  .process__card:nth-child(1) {
-    top: calc(var(--nav-height) + 2rem + 0 * var(--process-stack-step));
-  }
-  .process__card:nth-child(2) {
-    top: calc(var(--nav-height) + 2rem + 1 * var(--process-stack-step));
-  }
-  .process__card:nth-child(3) {
-    top: calc(var(--nav-height) + 2rem + 2 * var(--process-stack-step));
-  }
-  .process__card:nth-child(4) {
-    top: calc(var(--nav-height) + 2rem + 3 * var(--process-stack-step));
   }
 
   .process__card-inner {
@@ -1053,26 +1043,13 @@ button.nav__link { color: inherit; }
   #studio-overlay .process__text {
     top: 1rem;
   }
-  /* Stepped sticky top: each card stops lower by --process-stack-step so the card below stays partially visible */
-  #studio-overlay .process__card:nth-child(1) {
-    top: calc(1rem + 0 * var(--process-stack-step));
-    z-index: 1;
+  /* Same stepped sticky math as cards 1–3 (via --card-index on each card) */
+  #studio-overlay .process__card {
+    top: calc(1rem + var(--card-index, 0) * var(--process-stack-step));
+    z-index: calc(1 + var(--card-index, 0));
   }
-  #studio-overlay .process__card:nth-child(2) {
-    top: calc(1rem + 1 * var(--process-stack-step));
-    z-index: 2;
-  }
-  #studio-overlay .process__card:nth-child(3) {
-    top: calc(1rem + 2 * var(--process-stack-step));
-    z-index: 3;
-  }
-  #studio-overlay .process__card:nth-child(4) {
-    top: calc(1rem + 3 * var(--process-stack-step));
-    z-index: 4;
-  }
-  /* Match main column: runway for stacking only — large padding let you scroll past the stack and the last card slid up */
   #studio-overlay .process__cards {
-    padding-bottom: calc(3 * var(--process-stack-step) + clamp(2.5rem, 6vh, 5rem));
+    padding-bottom: calc(3 * var(--process-stack-step) + clamp(5rem, 18vh, 12rem));
   }
 }
 
