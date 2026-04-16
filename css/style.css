@@ -1674,12 +1674,13 @@ button.nav__link { color: inherit; }
 /* Material swatches */
 .case-study__material-swatches {
   display: flex; flex-wrap: wrap; gap: .65rem;
-  align-items: center; margin-top: .25rem;
+  align-items: center;
+  margin-top: clamp(0.55rem, 1.5vw, 0.9rem);
 }
 .case-study__material-swatch {
   flex-shrink: 0;
-  width: clamp(2.35rem, 5vw, 2.85rem);
-  height: clamp(2.35rem, 5vw, 2.85rem);
+  width: clamp(2.85rem, 5.75vw, 3.4rem);
+  height: clamp(2.85rem, 5.75vw, 3.4rem);
   border-radius: 50%;
   border: 1px solid rgba(0,0,0,.22);
   overflow: hidden;
@@ -1702,6 +1703,12 @@ button.nav__link { color: inherit; }
   padding: var(--slide-overlay-head-padding);
   padding-bottom: clamp(0.35rem, 1.2vw, 0.75rem);
   box-sizing: border-box;
+}
+.case-study__hero-figure--hotspots .case-study__hero-hotspot-wrap {
+  position: relative;
+  display: block;
+  line-height: 0;
+  overflow: visible;
 }
 .case-study__hero-img {
   width: 100%; height: auto; display: block;
@@ -1899,14 +1906,14 @@ button.nav__link { color: inherit; }
 }
 .case-study__img-hotspot {
   position: absolute; transform: translate(-50%, -50%);
-  width: 2.75rem; height: 2.75rem;
+  width: 3.5rem; height: 3.5rem;
   margin: 0; padding: 0; border: none; background: transparent;
   cursor: pointer; z-index: 2; overflow: visible;
   -webkit-tap-highlight-color: transparent;
   display: flex; align-items: center; justify-content: center;
 }
 .case-study__img-hotspot__dot {
-  display: block; width: .8rem; height: .8rem; flex: none;
+  display: block; width: 1.15rem; height: 1.15rem; flex: none;
   border-radius: 50%;
   background: rgba(255,255,255,.22);
   border: 1px solid rgba(255,255,255,.42);
@@ -1941,6 +1948,9 @@ button.nav__link { color: inherit; }
   font-size: .8125rem; line-height: 1.45; font-weight: 300;
   color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.45);
 }
+.case-study__img-hotspot__tip .case-study__img-hotspot__tip-img-wrap + .case-study__img-hotspot__tip-text {
+  padding-top: .5rem;
+}
 .case-study__img-hotspot:hover .case-study__img-hotspot__tip,
 .case-study__img-hotspot.is-active .case-study__img-hotspot__tip {
   opacity: 1; visibility: visible;
@@ -1948,32 +1958,34 @@ button.nav__link { color: inherit; }
   transition: opacity .35s ease, transform .35s ease, visibility 0s linear 0s;
 }
 
-/* Image tip variant */
+/* Image tip variant — same absolute placement as text tips (below dot) */
 .case-study__img-hotspot--tip-image .case-study__img-hotspot__tip {
-  position: fixed; left: 50%; top: 50%; right: auto; bottom: auto;
+  /* Inherits positioning from base .case-study__img-hotspot__tip — just widen for image content */
   min-width: 0;
-  width: min(11.25rem, 42vw); max-width: min(11.25rem, 42vw);
-  max-height: min(13.5rem, 40vh);
-  padding: 4px; overflow: auto;
-  pointer-events: auto; z-index: 998;
-  transform: translate(-50%, calc(-50% + 14px));
+  width: min(14rem, 60vw);
+  max-width: min(14rem, 60vw);
+  max-height: none;
+  padding: 4px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 5;
 }
 .case-study__img-hotspot__tip-img-wrap {
   display: block; line-height: 0;
-  max-height: min(12.5rem, 36vh); overflow: hidden;
+  overflow: hidden;
   border-radius: clamp(4px, .9vw, 10px);
 }
 .case-study__img-hotspot__tip-img {
-  display: block; width: 100%; height: auto;
-  max-width: 100%; max-height: min(12.5rem, 36vh);
-  object-fit: contain;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
 }
 .case-study__img-hotspot__tip-img.skeleton-ph {
-  width: 100%; max-width: 280px; aspect-ratio: 4/5; min-height: 0;
-}
-.case-study__img-hotspot--tip-image:hover .case-study__img-hotspot__tip,
-.case-study__img-hotspot--tip-image.is-active .case-study__img-hotspot__tip {
-  transform: translate(-50%, -50%);
+  width: 100%;
+  aspect-ratio: 4/5;
+  min-height: 0;
 }
 
 /* Metrics — 2 cols × 4 rows; label mono caps + value inline */
