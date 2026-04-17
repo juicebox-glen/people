@@ -1635,12 +1635,14 @@ button.nav__link { color: inherit; }
   border-top-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Two separate case studies in the overlay — show one via JS (.case-study-overlay--content-*) */
+/* Case study panels in the overlay — show one via JS (.case-study-overlay--content-*) */
 #case-study-overlay .case-study-panel {
   display: none;
 }
 #case-study-overlay.case-study-overlay--content-cork .case-study-panel--cork,
-#case-study-overlay.case-study-overlay--content-field .case-study-panel--field {
+#case-study-overlay.case-study-overlay--content-field .case-study-panel--field,
+#case-study-overlay.case-study-overlay--content-juni .case-study-panel--juni,
+#case-study-overlay.case-study-overlay--content-heath .case-study-panel--heath {
   display: block;
 }
 

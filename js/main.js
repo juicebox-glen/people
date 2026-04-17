@@ -304,7 +304,7 @@ function openSlideOverlay(target) {
       el.setAttribute('aria-hidden', 'true');
       if (el.id === 'case-study-overlay') {
         el.classList.remove('case-study-overlay--theme-light');
-        el.classList.remove('case-study-overlay--content-cork', 'case-study-overlay--content-field');
+        removeCaseStudyOverlayContentClasses(el);
       }
       unlockBodyScroll();
     }
@@ -323,7 +323,7 @@ function closeSlideOverlay(overlay) {
   overlay.classList.remove('is-open');
   if (overlay.id === 'case-study-overlay') {
     overlay.classList.remove('case-study-overlay--theme-light');
-    overlay.classList.remove('case-study-overlay--content-cork', 'case-study-overlay--content-field');
+    removeCaseStudyOverlayContentClasses(overlay);
     const ct = document.getElementById('case-study-overlay-title');
     if (ct) ct.textContent = 'PROJECT';
   }
@@ -340,6 +340,16 @@ function closeSlideOverlay(overlay) {
 function closeAllSlideOverlays() {
   document.querySelectorAll('.skeleton-slide-overlay.is-open').forEach((el) => {
     closeSlideOverlay(el);
+  });
+}
+
+/** Case study overlay content slugs — must match data-case-study-content and .case-study-panel--* */
+const CASE_STUDY_CONTENT_SLUGS = ['cork', 'field', 'juni', 'heath'];
+
+function removeCaseStudyOverlayContentClasses(el) {
+  if (!el) return;
+  CASE_STUDY_CONTENT_SLUGS.forEach((slug) => {
+    el.classList.remove(`case-study-overlay--content-${slug}`);
   });
 }
 
@@ -386,7 +396,7 @@ function initSlideOverlays() {
     const theme = link.getAttribute('data-case-study-theme');
     caseStudy.classList.toggle('case-study-overlay--theme-light', theme === 'light');
     const slug = link.getAttribute('data-case-study-content') || 'cork';
-    caseStudy.classList.remove('case-study-overlay--content-cork', 'case-study-overlay--content-field');
+    removeCaseStudyOverlayContentClasses(caseStudy);
     caseStudy.classList.add(`case-study-overlay--content-${slug}`);
     const titleEl = document.getElementById('case-study-overlay-title');
     if (titleEl) titleEl.textContent = 'PROJECT';
