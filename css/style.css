@@ -650,7 +650,10 @@ button.nav__link { color: inherit; }
   max-width: 100%;
   pointer-events: none;
 }
-.footer__ui a { pointer-events: auto; }
+.footer__ui a,
+.footer__ui button {
+  pointer-events: auto;
+}
 
 /* Footer grid: single column on mobile, 3-col on tablet+ */
 .footer__grid {
