@@ -5,7 +5,14 @@
    ============================================================ */
 
 /* --- Font Faces ------------------------------------------------ */
-@font-face { font-family:'Ufficio'; src:url('../fonts/Ufficio-500.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face {
+  font-family: 'Ufficio';
+  src: url('../fonts/Ufficio-500.woff2') format('woff2'),
+       url('../fonts/Ufficio-500.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* --- Custom Properties ----------------------------------------- */
 :root {
@@ -655,33 +662,75 @@ button.nav__link { color: inherit; }
   pointer-events: auto;
 }
 
-/* Footer grid: Explore + Stalk us only (two columns on tablet+) */
+/* Footer row: Explore | Stalk us (grouped left) — Say hello (right), one horizontal line on tablet+ */
 .footer__grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
-  align-items: start;
+  align-items: flex-start;
 }
 @media (min-width: 768px) {
   .footer__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 8%;
-    align-items: start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0;
+  }
+  /* Extra air between Explore and Stalk us; Say hello still rides right via margin-left: auto */
+  .footer__grid > .footer__block:first-child {
+    margin-right: clamp(3rem, 10vw, 7.5rem);
+  }
+  .footer__block--hello {
+    margin-left: auto;
+    text-align: left;
+    flex: 0 1 auto;
+    max-width: min(100%, 28rem);
   }
   .footer__ui { padding-top: var(--nav-height); }
 }
 
-/* Contact below the two-column link grid (full width) */
-.footer__contact-strip {
-  margin-top: clamp(1.75rem, 4vw, 2.75rem);
-  padding-top: clamp(1.25rem, 3vw, 2rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  max-width: 100%;
+/* Contact column — typographic block (no overline title) */
+.footer__hello-copy {
+  margin: 0;
+  text-align: left;
 }
-@media (min-width: 768px) {
-  .footer__contact-strip {
-    text-align: right;
-  }
+.footer__hello-line {
+  margin: 0;
+  font-family: var(--font-body);
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+}
+.footer__hello-line--lead + .footer__hello-line--lead {
+  margin-top: 0.06em;
+}
+.footer__hello-line--lead + .footer__hello-line--sub {
+  margin-top: 0.55em;
+}
+.footer__hello-line--lead,
+.footer__hello-line--sub {
+  font-size: clamp(1.125rem, 2.1vw, 1.5rem);
+}
+.footer__hello-line--lead {
+  font-weight: 500;
+  color: #fff;
+}
+.footer__hello-line--sub {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.58);
+}
+.footer__hello-line--sub + .footer__hello-line--sub {
+  margin-top: 0.1em;
+}
+.footer__hello-email {
+  color: inherit;
+  font-weight: 300;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+.footer__hello-email:hover {
+  opacity: 0.85;
+  border-bottom-color: rgba(255, 255, 255, 0.45);
 }
 
 .footer__label {
@@ -706,12 +755,6 @@ button.footer__nav-link {
   font: inherit;
 }
 .footer__nav-link:hover { opacity: .72; }
-.footer__contact-pair + .footer__contact-pair { margin-top: 1.6rem; }
-.footer__email {
-  font-size: 1.125rem; font-weight: 500; color: #fff;
-  text-decoration: none; transition: opacity .2s;
-}
-.footer__email:hover { opacity: .75; }
 
 .footer__meta {
   position: relative; z-index: 1;
