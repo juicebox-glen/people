@@ -539,8 +539,8 @@ button.nav__link { color: inherit; }
 }
 .hero__video-poster {
   position: absolute; inset: 0; z-index: 1;
-  background: url('../images/project-1.png') center/cover no-repeat;
-  background-color: var(--ink);
+  /* Match iframe letterbox / site dark chrome — not a project still (avoids wrong frame before video). */
+  background: var(--ink) url('../images/bg-black.webp') center/cover no-repeat;
   pointer-events: none;
   transition: opacity 0.55s ease;
 }
