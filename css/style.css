@@ -743,8 +743,13 @@ button.nav__link { color: inherit; }
   display: flex; flex-direction: column; gap: .45rem;
 }
 .footer__nav-link {
-  font-size: 1.125rem; font-weight: 500; color: #fff;
-  text-decoration: none; transition: opacity .2s;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity .2s;
 }
 button.footer__nav-link {
   background: transparent;
@@ -752,7 +757,6 @@ button.footer__nav-link {
   padding: 0;
   cursor: pointer;
   text-align: left;
-  font: inherit;
 }
 .footer__nav-link:hover { opacity: .72; }
 
