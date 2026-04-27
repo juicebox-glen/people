@@ -51,6 +51,16 @@ function unlockBodyScroll() {
   });
 }
 
+/** Real scroll Y while the body is scroll-locked (overlays, menu); `window.scrollY` is 0 in that state. */
+function getEffectiveScrollY() {
+  if (document.body.classList.contains('no-scroll')) {
+    const raw = document.documentElement.style.getPropertyValue('--scroll-lock-top');
+    const n = parseFloat(raw);
+    if (Number.isFinite(n)) return -n;
+  }
+  return window.scrollY;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ================================================================
@@ -532,11 +542,12 @@ function initWordmarkMorph() {
 
   function computeAnchors() {
     const g = getPageGutterPx();
+    const sy = getEffectiveScrollY();
     const hr = hero.getBoundingClientRect();
     startW = Math.max(1, window.innerWidth - 2 * g);
     const startH = startW * ASPECT;
     startLeft = g;
-    const heroBottomDoc = hr.bottom + window.scrollY;
+    const heroBottomDoc = hr.bottom + sy;
     startTop = heroBottomDoc - startH - g;
     endW = Math.max(navLogo.offsetWidth, 1);
     const endH = endW * ASPECT;
@@ -546,7 +557,7 @@ function initWordmarkMorph() {
   }
 
   function update() {
-    const t = Math.max(0, Math.min(1, window.scrollY / scrollRange));
+    const t = Math.max(0, Math.min(1, getEffectiveScrollY() / scrollRange));
     const settled = t >= 1;
     const left = lerp(startLeft, endLeft, t);
     const top = lerp(startTop, endTop, t);
