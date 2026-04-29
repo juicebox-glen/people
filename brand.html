@@ -338,9 +338,12 @@
     }
     .brand-icon-row {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: clamp(0.65rem, 2vw, 1rem);
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: clamp(0.5rem, 1.5vw, 0.85rem);
       width: 100%;
+    }
+    @media (max-width: 900px) {
+      .brand-icon-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     @media (max-width: 520px) {
       .brand-icon-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -360,8 +363,8 @@
       display: block;
       width: auto;
       height: auto;
-      max-width: min(50%, 5rem);
-      max-height: min(50%, 5rem);
+      max-width: min(46%, 4.25rem);
+      max-height: min(46%, 4.25rem);
       object-fit: contain;
     }
     .brand-icon-slot__downloads {
@@ -732,6 +735,22 @@
                 <a href="images/brand/icons/dark/icon-4.png" download="PEOPLE-icon-4-dark.png">PNG</a>
               </div>
             </div>
+            <div class="brand-icon-slot">
+              <img class="brand-icon-slot__img" src="images/brand/icons/dark/icon-5.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/dark/icon-5.svg" download="PEOPLE-icon-5-dark.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/dark/icon-5.png" download="PEOPLE-icon-5-dark.png">PNG</a>
+              </div>
+            </div>
+            <div class="brand-icon-slot">
+              <img class="brand-icon-slot__img" src="images/brand/icons/dark/icon-6.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/dark/icon-6.svg" download="PEOPLE-icon-6-dark.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/dark/icon-6.png" download="PEOPLE-icon-6-dark.png">PNG</a>
+              </div>
+            </div>
           </div>
           <div class="brand-icon-row brand-icon-row--on-light" aria-label="Icons on light field (dark on light, as per light logo variants)">
             <div class="brand-icon-slot">
@@ -764,6 +783,22 @@
                 <a href="images/brand/icons/light/icon-4.svg" download="PEOPLE-icon-4-light.svg">SVG</a>
                 <span aria-hidden="true">·</span>
                 <a href="images/brand/icons/light/icon-4.png" download="PEOPLE-icon-4-light.png">PNG</a>
+              </div>
+            </div>
+            <div class="brand-icon-slot">
+              <img class="brand-icon-slot__img" src="images/brand/icons/light/icon-5.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/light/icon-5.svg" download="PEOPLE-icon-5-light.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/light/icon-5.png" download="PEOPLE-icon-5-light.png">PNG</a>
+              </div>
+            </div>
+            <div class="brand-icon-slot">
+              <img class="brand-icon-slot__img" src="images/brand/icons/light/icon-6.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/light/icon-6.svg" download="PEOPLE-icon-6-light.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/light/icon-6.png" download="PEOPLE-icon-6-light.png">PNG</a>
               </div>
             </div>
           </div>
