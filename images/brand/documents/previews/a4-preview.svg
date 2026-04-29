@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 594" role="img" aria-hidden="true">
+  <rect width="420" height="594" fill="#FFF6EE"/>
+  <rect x="36" y="48" width="348" height="498" rx="4" fill="#fff" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/>
+  <rect x="64" y="96" width="180" height="14" rx="2" fill="rgba(0,0,0,.08)"/>
+  <rect x="64" y="136" width="292" height="8" rx="2" fill="rgba(0,0,0,.05)"/>
+  <rect x="64" y="156" width="268" height="8" rx="2" fill="rgba(0,0,0,.05)"/>
+  <rect x="64" y="176" width="280" height="8" rx="2" fill="rgba(0,0,0,.05)"/>
+  <text x="210" y="556" fill="#000" opacity="0.35" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">Template preview</text>
+</svg>
