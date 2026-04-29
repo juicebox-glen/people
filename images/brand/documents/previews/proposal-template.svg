@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-hidden="true">
-  <rect width="800" height="600" fill="#FFF6EE"/>
-  <rect x="180" y="72" width="440" height="456" rx="6" fill="#fff" stroke="rgba(0,0,0,.12)" stroke-width="2"/>
-  <rect x="200" y="110" width="340" height="18" rx="2" fill="rgba(0,0,0,.08)"/>
-  <rect x="200" y="150" width="280" height="12" rx="2" fill="rgba(0,0,0,.06)"/>
-  <rect x="200" y="180" width="320" height="12" rx="2" fill="rgba(0,0,0,.06)"/>
-  <text x="400" y="520" fill="#000" opacity="0.4" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">Proposal � A4 preview</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" role="img" aria-hidden="true">
+  <rect width="900" height="1600" fill="#FFF6EE"/>
+  <rect x="240" y="180" width="420" height="1240" rx="8" fill="#fff" stroke="rgba(0,0,0,.12)" stroke-width="2"/>
+  <rect x="270" y="240" width="320" height="20" rx="3" fill="rgba(0,0,0,.08)"/>
+  <rect x="270" y="300" width="260" height="14" rx="2" fill="rgba(0,0,0,.06)"/>
+  <rect x="270" y="340" width="300" height="14" rx="2" fill="rgba(0,0,0,.06)"/>
+  <rect x="270" y="400" width="280" height="14" rx="2" fill="rgba(0,0,0,.05)"/>
+  <text x="450" y="1480" fill="#000" opacity="0.4" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">Proposal · A4 preview</text>
 </svg>

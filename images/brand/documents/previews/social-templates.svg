@@ -1,6 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-hidden="true">
-  <rect width="800" height="600" fill="#FFF6EE"/>
-  <rect x="120" y="140" width="240" height="240" rx="16" fill="#000" fill-opacity="0.06" stroke="rgba(0,0,0,.12)"/>
-  <rect x="440" y="120" width="140" height="260" rx="20" fill="#000" fill-opacity="0.06" stroke="rgba(0,0,0,.12)"/>
-  <text x="400" y="520" fill="#000" opacity="0.4" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">Social � 1:1 + 9:16 preview</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" role="img" aria-hidden="true">
+  <rect width="900" height="1600" fill="#FFF6EE"/>
+  <!-- Primary vertical 16:9 (9×16) story frame -->
+  <rect x="210" y="200" width="480" height="853" rx="24" fill="#000" fill-opacity="0.06" stroke="rgba(0,0,0,.12)" stroke-width="2"/>
+  <!-- Secondary 1:1 -->
+  <rect x="672" y="420" width="96" height="96" rx="12" fill="#000" fill-opacity="0.05" stroke="rgba(0,0,0,.1)"/>
+  <text x="450" y="1140" fill="#000" opacity="0.4" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">Social · 9:16 frame + 1:1</text>
 </svg>
