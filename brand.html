@@ -441,54 +441,6 @@
       margin-top: clamp(1rem, 2.75vw, 1.75rem);
     }
 
-    .brand-social-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(1.5rem, 3vw, 2rem);
-    }
-    @media (min-width: 700px) {
-      .brand-social-grid { grid-template-columns: 1fr 1fr; }
-    }
-    .brand-social-card {
-      border: 1px solid var(--brand-border);
-      border-radius: var(--brand-card-radius);
-      padding: clamp(1.25rem, 3vw, 2rem);
-    }
-    .brand-social-card__title {
-      font-family: var(--font-headline);
-      font-weight: 500;
-      font-size: 1.125rem;
-      margin-bottom: 0.5rem;
-      color: var(--ink);
-    }
-    .brand-social-card__body {
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 300;
-      line-height: 1.6;
-      opacity: 0.72;
-    }
-    .brand-social-card__do-dont { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
-    .brand-social-card__rule {
-      font-family: var(--font-body);
-      font-size: 0.8125rem;
-      line-height: 1.5;
-      font-weight: 300;
-      display: flex; align-items: flex-start; gap: 0.4rem;
-    }
-    .brand-social-card__rule--do::before {
-      content: '✓';
-      color: #2a7d4f;
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-    .brand-social-card__rule--dont::before {
-      content: '✕';
-      color: #b5403a;
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-
     .brand-doc-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -595,7 +547,6 @@
     </a>
     <nav class="brand-topbar__nav" aria-label="Page">
       <a href="#brand" class="brand-topbar__link">Brand</a>
-      <a href="#social" class="brand-topbar__link">Social</a>
       <a href="#documents" class="brand-topbar__link">Documents</a>
     </nav>
   </header>
@@ -787,59 +738,11 @@
       </div>
     </section>
 
-    <!-- 02 SOCIAL -->
-    <section class="brand-section" id="social">
-      <div class="brand-section__header">
-        <h2 class="brand-section__title">Social</h2>
-        <span class="brand-section__num">02</span>
-      </div>
-
-      <p class="brand-section__desc">Guidelines for maintaining consistency across social channels. The voice is warm, direct, and avoids jargon.</p>
-
-      <div class="brand-social-grid">
-        <div class="brand-social-card">
-          <h3 class="brand-social-card__title">Tone of voice</h3>
-          <p class="brand-social-card__body">Speak like a thoughtful colleague, not a brand. First person plural. Short sentences. No exclamation marks in captions.</p>
-          <div class="brand-social-card__do-dont">
-            <p class="brand-social-card__rule brand-social-card__rule--do">&ldquo;We&rsquo;re working on something new in Norwich.&rdquo;</p>
-            <p class="brand-social-card__rule brand-social-card__rule--dont">&ldquo;Exciting news!! We&rsquo;re THRILLED to announce&hellip;&rdquo;</p>
-          </div>
-        </div>
-
-        <div class="brand-social-card">
-          <h3 class="brand-social-card__title">Photography</h3>
-          <p class="brand-social-card__body">Natural light, real spaces, real people. No stock photography. Minimal editing — adjust exposure and white balance only.</p>
-          <div class="brand-social-card__do-dont">
-            <p class="brand-social-card__rule brand-social-card__rule--do">In-progress site shots, material close-ups, team on location</p>
-            <p class="brand-social-card__rule brand-social-card__rule--dont">Staged renders, heavy filters, drone shots for the sake of it</p>
-          </div>
-        </div>
-
-        <div class="brand-social-card">
-          <h3 class="brand-social-card__title">Profile &amp; avatars</h3>
-          <p class="brand-social-card__body">Use the square mark on Cream (<code>#FFF6EE</code>) background. No taglines in profile pictures.</p>
-          <div class="brand-social-card__do-dont">
-            <p class="brand-social-card__rule brand-social-card__rule--do">Square mark, page background colour, no border</p>
-            <p class="brand-social-card__rule brand-social-card__rule--dont">Full wordmark squeezed into a circle crop</p>
-          </div>
-        </div>
-
-        <div class="brand-social-card">
-          <h3 class="brand-social-card__title">Hashtags &amp; mentions</h3>
-          <p class="brand-social-card__body">Keep hashtags minimal and relevant. Maximum three per post. Place at the end, never inline.</p>
-          <div class="brand-social-card__do-dont">
-            <p class="brand-social-card__rule brand-social-card__rule--do">#people #architecture</p>
-            <p class="brand-social-card__rule brand-social-card__rule--dont">#interiordesign #designinspo #goals #inspo</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 DOCUMENTS -->
+    <!-- 02 DOCUMENTS -->
     <section class="brand-section" id="documents">
       <div class="brand-section__header">
         <h2 class="brand-section__title">Documents</h2>
-        <span class="brand-section__num">03</span>
+        <span class="brand-section__num">02</span>
       </div>
 
       <p class="brand-section__desc">Branded templates for day-to-day use. Duplicate before editing — never modify originals.</p>
