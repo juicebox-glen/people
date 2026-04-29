@@ -330,6 +330,12 @@
       max-height: min(88%, min(52vw, 17.5rem));
     }
 
+    .brand-icon-rows {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.65rem, 2vw, 1rem);
+      width: 100%;
+    }
     .brand-icon-row {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -342,20 +348,34 @@
     .brand-icon-slot {
       aspect-ratio: 1;
       border-radius: var(--brand-card-radius);
-      border: 1px solid var(--brand-border);
-      background: color-mix(in srgb, var(--page-bg) 65%, var(--studio-panel-bg, #faf8f5));
       display: flex;
       align-items: center;
       justify-content: center;
       padding: clamp(1rem, 4vw, 1.65rem);
+    }
+    /* Match dark-logo cards (wordmark circle / Dark field): ink field, light glyphs */
+    .brand-icon-row--on-dark .brand-icon-slot {
+      background: var(--ink);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .brand-icon-row--on-dark .brand-icon-slot__ph {
+      color: #fff;
+      opacity: 0.5;
+    }
+    /* Match light-logo cards (Light field): page bg, ink glyphs */
+    .brand-icon-row--on-light .brand-icon-slot {
+      background: var(--page-bg);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .brand-icon-row--on-light .brand-icon-slot__ph {
+      color: var(--ink);
+      opacity: 0.38;
     }
     .brand-icon-slot__ph {
       width: 46%;
       max-width: 3.75rem;
       height: auto;
       aspect-ratio: 1;
-      color: var(--ink);
-      opacity: 0.38;
       flex-shrink: 0;
     }
 
@@ -649,18 +669,34 @@
           </div>
         </div>
 
-        <div class="brand-icon-row">
-          <div class="brand-icon-slot">
-            <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3"/></svg>
+        <div class="brand-icon-rows">
+          <div class="brand-icon-row brand-icon-row--on-dark" aria-label="Icons on dark field (light on dark, as per dark logo variants)">
+            <div class="brand-icon-slot">
+              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3"/></svg>
+            </div>
+            <div class="brand-icon-slot">
+              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><circle cx="16" cy="16" r="11"/></svg>
+            </div>
+            <div class="brand-icon-slot">
+              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M16 5l9 11-9 11-9-11 9-11z"/></svg>
+            </div>
+            <div class="brand-icon-slot">
+              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M6 16h20M16 6v20"/></svg>
+            </div>
           </div>
-          <div class="brand-icon-slot">
-            <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><circle cx="16" cy="16" r="11"/></svg>
-          </div>
-          <div class="brand-icon-slot">
-            <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M16 5l9 11-9 11-9-11 9-11z"/></svg>
-          </div>
-          <div class="brand-icon-slot">
-            <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M6 16h20M16 6v20"/></svg>
+          <div class="brand-icon-row brand-icon-row--on-light" aria-label="Icons on light field (dark on light, as per light logo variants)">
+            <div class="brand-icon-slot">
+              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3"/></svg>
+            </div>
+            <div class="brand-icon-slot">
+              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><circle cx="16" cy="16" r="11"/></svg>
+            </div>
+            <div class="brand-icon-slot">
+              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M16 5l9 11-9 11-9-11 9-11z"/></svg>
+            </div>
+            <div class="brand-icon-slot">
+              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M6 16h20M16 6v20"/></svg>
+            </div>
           </div>
         </div>
         </div>
