@@ -346,37 +346,66 @@
       .brand-icon-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     .brand-icon-slot {
+      position: relative;
       aspect-ratio: 1;
       border-radius: var(--brand-card-radius);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: clamp(1rem, 4vw, 1.65rem);
+      padding: clamp(0.75rem, 2vw, 1rem);
+      padding-bottom: clamp(1.85rem, 5vw, 2.5rem);
+      overflow: hidden;
     }
-    /* Match dark-logo cards (wordmark circle / Dark field): ink field, light glyphs */
+    .brand-icon-slot__img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: min(50%, 5rem);
+      max-height: min(50%, 5rem);
+      object-fit: contain;
+    }
+    .brand-icon-slot__downloads {
+      position: absolute;
+      bottom: clamp(0.35rem, 1vw, 0.55rem);
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem 0.5rem;
+      z-index: 2;
+    }
+    .brand-icon-slot__downloads a {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: var(--chrome-mono-ls);
+      text-transform: uppercase;
+      text-decoration: none;
+      color: inherit;
+      opacity: 0.55;
+      border-bottom: 1px solid transparent;
+      transition: opacity 0.15s ease, border-color 0.15s ease;
+    }
+    .brand-icon-slot__downloads a:hover {
+      opacity: 1;
+      border-bottom-color: currentColor;
+    }
+    .brand-icon-slot__downloads span[aria-hidden="true"] {
+      opacity: 0.35;
+      user-select: none;
+    }
+    /* Match dark-logo cards (Dark field): ink field, light links */
     .brand-icon-row--on-dark .brand-icon-slot {
       background: var(--ink);
       border: 1px solid rgba(255, 255, 255, 0.14);
     }
-    .brand-icon-row--on-dark .brand-icon-slot__ph {
-      color: #fff;
-      opacity: 0.5;
-    }
-    /* Match light-logo cards (Light field): page bg, ink glyphs */
+    .brand-icon-row--on-dark .brand-icon-slot__downloads a { color: #fff; }
+    /* Match light-logo cards (Light field): page bg, ink links */
     .brand-icon-row--on-light .brand-icon-slot {
       background: var(--page-bg);
       border: 1px solid rgba(0, 0, 0, 0.08);
-    }
-    .brand-icon-row--on-light .brand-icon-slot__ph {
-      color: var(--ink);
-      opacity: 0.38;
-    }
-    .brand-icon-slot__ph {
-      width: 46%;
-      max-width: 3.75rem;
-      height: auto;
-      aspect-ratio: 1;
-      flex-shrink: 0;
     }
 
     .brand-colors {
@@ -672,30 +701,70 @@
         <div class="brand-icon-rows">
           <div class="brand-icon-row brand-icon-row--on-dark" aria-label="Icons on dark field (light on dark, as per dark logo variants)">
             <div class="brand-icon-slot">
-              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3"/></svg>
+              <img class="brand-icon-slot__img" src="images/brand/icons/dark/icon-1.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/dark/icon-1.svg" download="PEOPLE-icon-1-dark.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/dark/icon-1.png" download="PEOPLE-icon-1-dark.png">PNG</a>
+              </div>
             </div>
             <div class="brand-icon-slot">
-              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><circle cx="16" cy="16" r="11"/></svg>
+              <img class="brand-icon-slot__img" src="images/brand/icons/dark/icon-2.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/dark/icon-2.svg" download="PEOPLE-icon-2-dark.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/dark/icon-2.png" download="PEOPLE-icon-2-dark.png">PNG</a>
+              </div>
             </div>
             <div class="brand-icon-slot">
-              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M16 5l9 11-9 11-9-11 9-11z"/></svg>
+              <img class="brand-icon-slot__img" src="images/brand/icons/dark/icon-3.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/dark/icon-3.svg" download="PEOPLE-icon-3-dark.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/dark/icon-3.png" download="PEOPLE-icon-3-dark.png">PNG</a>
+              </div>
             </div>
             <div class="brand-icon-slot">
-              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M6 16h20M16 6v20"/></svg>
+              <img class="brand-icon-slot__img" src="images/brand/icons/dark/icon-4.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/dark/icon-4.svg" download="PEOPLE-icon-4-dark.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/dark/icon-4.png" download="PEOPLE-icon-4-dark.png">PNG</a>
+              </div>
             </div>
           </div>
           <div class="brand-icon-row brand-icon-row--on-light" aria-label="Icons on light field (dark on light, as per light logo variants)">
             <div class="brand-icon-slot">
-              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3"/></svg>
+              <img class="brand-icon-slot__img" src="images/brand/icons/light/icon-1.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/light/icon-1.svg" download="PEOPLE-icon-1-light.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/light/icon-1.png" download="PEOPLE-icon-1-light.png">PNG</a>
+              </div>
             </div>
             <div class="brand-icon-slot">
-              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><circle cx="16" cy="16" r="11"/></svg>
+              <img class="brand-icon-slot__img" src="images/brand/icons/light/icon-2.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/light/icon-2.svg" download="PEOPLE-icon-2-light.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/light/icon-2.png" download="PEOPLE-icon-2-light.png">PNG</a>
+              </div>
             </div>
             <div class="brand-icon-slot">
-              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M16 5l9 11-9 11-9-11 9-11z"/></svg>
+              <img class="brand-icon-slot__img" src="images/brand/icons/light/icon-3.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/light/icon-3.svg" download="PEOPLE-icon-3-light.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/light/icon-3.png" download="PEOPLE-icon-3-light.png">PNG</a>
+              </div>
             </div>
             <div class="brand-icon-slot">
-              <svg class="brand-icon-slot__ph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="M6 16h20M16 6v20"/></svg>
+              <img class="brand-icon-slot__img" src="images/brand/icons/light/icon-4.svg" width="256" height="256" decoding="async" alt="">
+              <div class="brand-icon-slot__downloads">
+                <a href="images/brand/icons/light/icon-4.svg" download="PEOPLE-icon-4-light.svg">SVG</a>
+                <span aria-hidden="true">·</span>
+                <a href="images/brand/icons/light/icon-4.png" download="PEOPLE-icon-4-light.png">PNG</a>
+              </div>
             </div>
           </div>
         </div>
