@@ -161,7 +161,7 @@
       background:
         linear-gradient(165deg,
           rgba(255, 255, 255, 0.97) 0%,
-          color-mix(in srgb, var(--page-bg) 92%, #f4e4d5) 55%,
+          color-mix(in srgb, var(--page-bg) 92%, #FFF6EE) 55%,
           rgba(255, 255, 255, 0.88) 100%);
       border: 1px solid rgba(0, 0, 0, 0.07);
       border-radius: clamp(14px, 2.2vw, 24px);
@@ -437,6 +437,9 @@
     }
     .brand-download:hover { border-color: var(--ink); background: rgba(0, 0, 0, 0.03); }
     .brand-download__icon { font-size: 0.75rem; }
+    .brand-logo-rows + .brand-download {
+      margin-top: clamp(1rem, 2.75vw, 1.75rem);
+    }
 
     .brand-social-grid {
       display: grid;
@@ -680,16 +683,19 @@
           </div>
         </div>
         </div>
+        <a href="https://drive.google.com/drive/folders/1zHeHsWiTJYYujgG-zRO6SewY8LiYCzxA" class="brand-download" target="_blank" rel="noopener noreferrer">
+          <span class="brand-download__icon" aria-hidden="true">↓</span> Download logos &amp; icons (Google Drive)
+        </a>
       </div>
 
       <div class="brand-sub brand-sub--feature">
         <p class="brand-sub__label">Colour palette</p>
         <div class="brand-colors">
           <div class="brand-color">
-            <div class="brand-color__swatch" style="background: #F4E4D5; border: 1px solid rgba(0,0,0,.06);"></div>
+            <div class="brand-color__swatch" style="background: #FFF6EE; border: 1px solid rgba(0,0,0,.06);"></div>
             <div class="brand-color__info">
               <p class="brand-color__name">Cream</p>
-              <p class="brand-color__value">#F4E4D5</p>
+              <p class="brand-color__value">#FFF6EE</p>
               <p class="brand-color__token">Primary background · wide fields</p>
             </div>
           </div>
@@ -746,7 +752,7 @@
             <div class="brand-color__info">
               <p class="brand-color__name">Accent blue</p>
               <p class="brand-color__value">#1F69FF</p>
-              <p class="brand-color__token">Links · focus · interactive UI</p>
+              <p class="brand-color__token">Floor plan illustrations · diagrams · technical overlays</p>
             </div>
           </div>
         </div>
@@ -811,7 +817,7 @@
 
         <div class="brand-social-card">
           <h3 class="brand-social-card__title">Profile &amp; avatars</h3>
-          <p class="brand-social-card__body">Use the square mark on Cream (<code>#F4E4D5</code>) background. No taglines in profile pictures.</p>
+          <p class="brand-social-card__body">Use the square mark on Cream (<code>#FFF6EE</code>) background. No taglines in profile pictures.</p>
           <div class="brand-social-card__do-dont">
             <p class="brand-social-card__rule brand-social-card__rule--do">Square mark, page background colour, no border</p>
             <p class="brand-social-card__rule brand-social-card__rule--dont">Full wordmark squeezed into a circle crop</p>
