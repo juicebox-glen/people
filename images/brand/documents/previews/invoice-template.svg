@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-hidden="true">
+  <rect width="800" height="600" fill="#f8f4ef"/>
+  <rect x="64" y="64" width="672" height="472" rx="4" fill="#fff" stroke="rgba(0,0,0,.1)"/>
+  <path d="M64 132h672v1H64z" fill="rgba(0,0,0,.15)"/>
+  <rect x="96" y="168" width="120" height="14" fill="rgba(0,0,0,.08)"/>
+  <rect x="96" y="210" width="560" height="10" fill="rgba(0,0,0,.05)"/>
+  <rect x="96" y="236" width="520" height="10" fill="rgba(0,0,0,.05)"/>
+  <rect x="96" y="380" width="240" height="36" fill="rgba(226,193,163,.5)"/>
+  <text x="400" y="556" fill="#000" opacity="0.4" font-family="system-ui,sans-serif" font-size="15" text-anchor="middle">Invoice � spreadsheet preview</text>
+</svg>

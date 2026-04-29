@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-hidden="true">
+  <defs><linearGradient id="g-pd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6EE"/><stop offset="1" stop-color="#E2C1A3" stop-opacity="0.5"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#g-pd)"/>
+  <rect x="72" y="96" width="656" height="408" rx="12" fill="#fff" fill-opacity="0.55" stroke="rgba(0,0,0,.1)"/>
+  <text x="400" y="280" fill="#000" opacity="0.2" font-family="system-ui,sans-serif" font-size="52" font-weight="600" text-anchor="middle">16:9</text>
+  <text x="400" y="360" fill="#000" opacity="0.45" font-family="system-ui,sans-serif" font-size="18" font-weight="500" text-anchor="middle">Presentation deck preview</text>
+</svg>

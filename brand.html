@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>PEOPLE — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Layout + chrome; typefaces align with the public site via css/style.css */
+    .brand-scope {
+      --brand-border: rgba(0, 0, 0, 0.12);
+      --brand-fg-muted: rgba(0, 0, 0, 0.52);
+      --brand-max: var(--max-rail);
+      --brand-section-gap: clamp(2.5rem, 6vw, 4rem);
+      --brand-card-radius: clamp(8px, 1.2vw, 14px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+    body.brand-scope {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    .brand-scope a { color: inherit; }
+    .brand-scope img { max-width: 100%; display: block; }
+    .brand-scope button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    .brand-topbar {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--page-bg);
+      border-bottom: 1px solid var(--brand-border);
+      padding: 0 var(--page-gutter);
+      height: var(--nav-height);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand-topbar__logo {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+      color: var(--ink);
+    }
+    .brand-topbar__badge {
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: var(--chrome-mono-ls);
+      padding: 0.2rem 0.45rem;
+      border: 1px solid var(--brand-border);
+      border-radius: 3px;
+      opacity: 0.65;
+    }
+    .brand-topbar__nav { display: flex; gap: clamp(0.75rem, 2vw, 1.5rem); }
+    .brand-topbar__link {
+      font-family: var(--font-mono);
+      font-size: var(--chrome-mono-fs);
+      font-weight: 400;
+      letter-spacing: var(--chrome-mono-ls);
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0.55;
+      transition: opacity 0.2s;
+    }
+    .brand-topbar__link:hover { opacity: 1; }
+
+    .brand-page {
+      max-width: var(--brand-max);
+      margin: 0 auto;
+      padding: 0 var(--page-gutter);
+    }
+
+    .brand-hero {
+      padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 3.5rem);
+      border-bottom: 1px solid var(--brand-border);
+    }
+    .brand-hero__title {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+      color: var(--ink);
+    }
+    .brand-hero__meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: var(--chrome-mono-fs);
+      font-weight: 400;
+      letter-spacing: var(--chrome-mono-ls);
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    .brand-section {
+      padding-top: var(--brand-section-gap);
+    }
+    .brand-section__header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+      padding-bottom: clamp(1rem, 2.5vw, 1.75rem);
+      border-bottom: 1px solid var(--brand-border);
+      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    }
+    .brand-section__num {
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.4;
+    }
+    .brand-section__title {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .brand-section__desc {
+      font-family: var(--font-body);
+      max-width: 38rem;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.72);
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .brand-sub { margin-bottom: clamp(2.5rem, 6vw, 4rem); }
+    .brand-sub__label {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: var(--type-overline-fs);
+      letter-spacing: var(--type-overline-ls);
+      text-transform: uppercase;
+      opacity: 0.65;
+      margin-bottom: clamp(0.65rem, 1.5vw, 1rem);
+      color: var(--ink);
+    }
+    .brand-sub__note {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--brand-fg-muted);
+      max-width: 34rem;
+      margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .brand-logo-rows {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+    }
+    .brand-logo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(0.75rem, 2vw, 1rem);
+    }
+    @media (min-width: 600px) {
+      .brand-logo-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .brand-logo-card {
+      aspect-ratio: 3/2;
+      border-radius: var(--brand-card-radius);
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      padding-bottom: clamp(2.75rem, 6vw, 3.75rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-logo-card--mark {
+      aspect-ratio: 1;
+      padding: clamp(2rem, 5vw, 3rem);
+      padding-bottom: clamp(3rem, 7vw, 4rem);
+    }
+    .brand-logo-card--light {
+      background: var(--page-bg);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .brand-logo-card--dark { background: var(--ink); }
+    .brand-logo-card__downloads {
+      position: absolute;
+      bottom: clamp(0.4rem, 1.2vw, 0.85rem);
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem 0.75rem;
+      z-index: 2;
+    }
+    .brand-logo-card__downloads a {
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      letter-spacing: var(--chrome-mono-ls);
+      text-transform: uppercase;
+      text-decoration: none;
+      color: inherit;
+      opacity: 0.55;
+      border-bottom: 1px solid transparent;
+      transition: opacity 0.15s ease, border-color 0.15s ease;
+    }
+    .brand-logo-card__downloads a:hover {
+      opacity: 1;
+      border-bottom-color: currentColor;
+    }
+    .brand-logo-card__downloads span[aria-hidden="true"] {
+      opacity: 0.35;
+      user-select: none;
+    }
+    .brand-logo-card--dark .brand-logo-card__downloads a { color: #fff; }
+    .brand-logo-card__tag {
+      position: absolute;
+      top: clamp(0.65rem, 1.5vw, 1rem);
+      left: clamp(0.65rem, 1.5vw, 1rem);
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: var(--chrome-mono-ls);
+      opacity: 0.5;
+    }
+    .brand-logo-card--dark .brand-logo-card__tag { color: #fff; }
+    .brand-logo-card__img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: min(92%, 22rem);
+      max-height: min(52%, 140px);
+      object-fit: contain;
+    }
+    .brand-logo-card--mark .brand-logo-card__img {
+      max-width: min(70%, 9rem);
+      max-height: min(62%, 9rem);
+    }
+    .brand-logo-card--mark.brand-logo-card--square .brand-logo-card__img {
+      max-width: min(94%, min(52vw, 17.5rem));
+      max-height: min(88%, min(52vw, 17.5rem));
+    }
+
+    .brand-colors {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr));
+      gap: clamp(0.75rem, 2vw, 1rem);
+    }
+    .brand-color {
+      border-radius: var(--brand-card-radius);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .brand-color__swatch { aspect-ratio: 1; width: 100%; }
+    .brand-color__info { padding: 0.65rem 0.75rem; background: #fff; }
+    .brand-color__name {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: 0.8125rem;
+      margin-bottom: 0.15rem;
+      color: var(--ink);
+    }
+    .brand-color__value {
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.5;
+    }
+    .brand-color__token {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      opacity: 0.45;
+      margin-top: 0.2rem;
+      word-break: break-all;
+    }
+
+    .brand-type-specimen {
+      border: 1px solid var(--brand-border);
+      border-radius: var(--brand-card-radius);
+      overflow: hidden;
+      margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    }
+    .brand-type-specimen__display {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .brand-type-specimen__row-title {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: var(--chrome-mono-ls);
+      text-transform: uppercase;
+      opacity: 0.45;
+      margin-bottom: 0.25rem;
+    }
+    .brand-type-specimen__headline {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .brand-type-specimen__body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .brand-type-specimen__mono {
+      font-family: var(--font-mono);
+      font-size: var(--chrome-mono-fs);
+      font-weight: 400;
+      letter-spacing: var(--chrome-mono-ls);
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .brand-type-specimen__charset {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: clamp(0.75rem, 1.5vw, 0.9375rem);
+      line-height: 1.6;
+      opacity: 0.5;
+      word-break: break-all;
+      letter-spacing: 0.02em;
+    }
+    .brand-type-specimen__meta {
+      padding: 0.75rem clamp(1rem, 2vw, 1.5rem);
+      background: rgba(0, 0, 0, 0.03);
+      border-top: 1px solid var(--brand-border);
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.55;
+    }
+
+    .brand-download {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--brand-border);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: var(--chrome-mono-ls);
+      text-decoration: none;
+      color: var(--ink);
+      transition: border-color 0.2s, background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .brand-download:hover { border-color: var(--ink); background: rgba(0, 0, 0, 0.03); }
+    .brand-download__icon { font-size: 0.75rem; }
+
+    .brand-social-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(1.5rem, 3vw, 2rem);
+    }
+    @media (min-width: 700px) {
+      .brand-social-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .brand-social-card {
+      border: 1px solid var(--brand-border);
+      border-radius: var(--brand-card-radius);
+      padding: clamp(1.25rem, 3vw, 2rem);
+    }
+    .brand-social-card__title {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .brand-social-card__body {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.6;
+      opacity: 0.72;
+    }
+    .brand-social-card__do-dont { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .brand-social-card__rule {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      font-weight: 300;
+      display: flex; align-items: flex-start; gap: 0.4rem;
+    }
+    .brand-social-card__rule--do::before {
+      content: '✓';
+      color: #2a7d4f;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .brand-social-card__rule--dont::before {
+      content: '✕';
+      color: #b5403a;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .brand-doc-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(1rem, 2.5vw, 1.5rem);
+    }
+    @media (min-width: 600px) {
+      .brand-doc-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 900px) {
+      .brand-doc-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .brand-doc-card {
+      border: 1px solid var(--brand-border);
+      border-radius: var(--brand-card-radius);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .brand-doc-card:hover {
+      border-color: rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+    .brand-doc-card__preview {
+      aspect-ratio: 4/3;
+      background: color-mix(in srgb, var(--page-bg) 55%, var(--studio-panel-bg));
+      border-bottom: 1px solid var(--brand-border);
+      position: relative;
+      overflow: hidden;
+      min-height: 0;
+    }
+    .brand-doc-card__preview-img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .brand-doc-card__badge {
+      position: absolute;
+      top: 0.65rem; right: 0.65rem;
+      z-index: 1;
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.35rem;
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: 3px;
+      opacity: 0.55;
+    }
+    .brand-doc-card__info { padding: 0.85rem 1rem; }
+    .brand-doc-card__title {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      margin-bottom: 0.2rem;
+      color: var(--ink);
+    }
+    .brand-doc-card__meta {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.4;
+    }
+
+    .brand-footer {
+      margin-top: var(--brand-section-gap);
+      padding: clamp(1.5rem, 3vw, 2rem) 0;
+      border-top: 1px solid var(--brand-border);
+    }
+    .brand-footer__inner {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: center;
+      gap: 0.5rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.5625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.45;
+    }
+    .brand-footer__link {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.2s;
+    }
+    .brand-footer__link:hover { opacity: 0.85; }
+
+    .mb-0 { margin-bottom: 0 !important; }
+  </style>
+</head>
+<body class="brand-scope">
+
+  <header class="brand-topbar">
+    <a href="index.html" class="brand-topbar__logo">
+      PEOPLE
+      <span class="brand-topbar__badge">Brand Guidelines</span>
+    </a>
+    <nav class="brand-topbar__nav" aria-label="Page">
+      <a href="#brand" class="brand-topbar__link">Brand</a>
+      <a href="#social" class="brand-topbar__link">Social</a>
+      <a href="#documents" class="brand-topbar__link">Documents</a>
+    </nav>
+  </header>
+
+  <div class="brand-page">
+
+    <section class="brand-hero">
+      <h1 class="brand-hero__title">Brand<br>Guidelines</h1>
+      <div class="brand-hero__meta">
+        <span>Version 2.1</span>
+        <span>Last updated — April 2026</span>
+        <span>Internal + partners</span>
+      </div>
+    </section>
+
+    <!-- 01 BRAND -->
+    <section class="brand-section" id="brand">
+      <div class="brand-section__header">
+        <h2 class="brand-section__title">Brand</h2>
+        <span class="brand-section__num">01</span>
+      </div>
+
+      <div class="brand-sub">
+        <div class="brand-logo-rows">
+          <div class="brand-logo-grid">
+          <div class="brand-logo-card brand-logo-card--light">
+            <span class="brand-logo-card__tag">Full width — Light field</span>
+            <img class="brand-logo-card__img" src="images/brand/light/wordmark.svg" width="520" height="100" decoding="async" alt="PEOPLE wordmark — for light backgrounds">
+            <div class="brand-logo-card__downloads">
+              <a href="images/brand/light/wordmark.svg" download="PEOPLE-wordmark-light.svg">SVG</a>
+              <span aria-hidden="true">·</span>
+              <a href="images/brand/light/wordmark.png" download="PEOPLE-wordmark-light.png">PNG</a>
+            </div>
+          </div>
+          <div class="brand-logo-card brand-logo-card--dark">
+            <span class="brand-logo-card__tag">Full width — Dark field</span>
+            <img class="brand-logo-card__img" src="images/brand/dark/wordmark.svg" width="520" height="100" decoding="async" alt="PEOPLE wordmark — for dark backgrounds">
+            <div class="brand-logo-card__downloads">
+              <a href="images/brand/dark/wordmark.svg" download="PEOPLE-wordmark-dark.svg">SVG</a>
+              <span aria-hidden="true">·</span>
+              <a href="images/brand/dark/wordmark.png" download="PEOPLE-wordmark-dark.png">PNG</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="brand-logo-grid">
+          <div class="brand-logo-card brand-logo-card--light brand-logo-card--mark brand-logo-card--square">
+            <span class="brand-logo-card__tag">Square — Light field</span>
+            <img class="brand-logo-card__img" src="images/brand/light/square.svg" width="256" height="256" decoding="async" alt="PEOPLE square mark — for light backgrounds">
+            <div class="brand-logo-card__downloads">
+              <a href="images/brand/light/square.svg" download="PEOPLE-square-light.svg">SVG</a>
+              <span aria-hidden="true">·</span>
+              <a href="images/brand/light/square.png" download="PEOPLE-square-light.png">PNG</a>
+            </div>
+          </div>
+          <div class="brand-logo-card brand-logo-card--dark brand-logo-card--mark brand-logo-card--square">
+            <span class="brand-logo-card__tag">Square — Dark field</span>
+            <img class="brand-logo-card__img" src="images/brand/dark/square.svg" width="256" height="256" decoding="async" alt="PEOPLE square mark — for dark backgrounds">
+            <div class="brand-logo-card__downloads">
+              <a href="images/brand/dark/square.svg" download="PEOPLE-square-dark.svg">SVG</a>
+              <span aria-hidden="true">·</span>
+              <a href="images/brand/dark/square.png" download="PEOPLE-square-dark.png">PNG</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="brand-logo-grid">
+          <div class="brand-logo-card brand-logo-card--light brand-logo-card--mark brand-logo-card--circle">
+            <span class="brand-logo-card__tag">Circle — Light field</span>
+            <img class="brand-logo-card__img" src="images/brand/light/circle.svg" width="256" height="256" decoding="async" alt="PEOPLE circle mark — for light backgrounds">
+            <div class="brand-logo-card__downloads">
+              <a href="images/brand/light/circle.svg" download="PEOPLE-circle-light.svg">SVG</a>
+              <span aria-hidden="true">·</span>
+              <a href="images/brand/light/circle.png" download="PEOPLE-circle-light.png">PNG</a>
+            </div>
+          </div>
+          <div class="brand-logo-card brand-logo-card--dark brand-logo-card--mark brand-logo-card--circle">
+            <span class="brand-logo-card__tag">Circle — Dark field</span>
+            <img class="brand-logo-card__img" src="images/brand/dark/circle.svg" width="256" height="256" decoding="async" alt="PEOPLE circle mark — for dark backgrounds">
+            <div class="brand-logo-card__downloads">
+              <a href="images/brand/dark/circle.svg" download="PEOPLE-circle-dark.svg">SVG</a>
+              <span aria-hidden="true">·</span>
+              <a href="images/brand/dark/circle.png" download="PEOPLE-circle-dark.png">PNG</a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="brand-sub">
+        <p class="brand-sub__label">Colour palette</p>
+        <p class="brand-sub__note">Parchment is the default page field. Black anchors type and strong contrast. Sandstone warmth is for secondary emphasis — use sparingly. White clears space on ink or textured black photography.</p>
+        <div class="brand-colors">
+          <div class="brand-color">
+            <div class="brand-color__swatch" style="background: #FFF6EE;"></div>
+            <div class="brand-color__info">
+              <p class="brand-color__name">Parchment</p>
+              <p class="brand-color__value">#FFF6EE</p>
+              <p class="brand-color__token">Primary background · paper-like field</p>
+            </div>
+          </div>
+          <div class="brand-color">
+            <div class="brand-color__swatch" style="background: #000000;"></div>
+            <div class="brand-color__info">
+              <p class="brand-color__name">Black</p>
+              <p class="brand-color__value">#000000</p>
+              <p class="brand-color__token">Type · deep UI · wordmark on light</p>
+            </div>
+          </div>
+          <div class="brand-color">
+            <div class="brand-color__swatch" style="background: #E2C1A3;"></div>
+            <div class="brand-color__info">
+              <p class="brand-color__name">Sandstone</p>
+              <p class="brand-color__value">#E2C1A3</p>
+              <p class="brand-color__token">Secondary warmth · panels</p>
+            </div>
+          </div>
+          <div class="brand-color">
+            <div class="brand-color__swatch" style="background: #ffffff; border: 1px solid rgba(0,0,0,.08);"></div>
+            <div class="brand-color__info">
+              <p class="brand-color__name">White</p>
+              <p class="brand-color__value">#FFFFFF</p>
+              <p class="brand-color__token">Surfaces on black · cards</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-sub mb-0">
+        <p class="brand-sub__label">Typography</p>
+        <p class="brand-sub__note"><strong>Ufficio</strong> (medium) leads display and titles. <strong>DM Sans</strong> carries body copy at light weight. <strong>DM Mono</strong> is for small caps navigation, labels, and technical lines. Do not substitute other families in external materials.</p>
+        <div class="brand-type-specimen">
+          <div class="brand-type-specimen__display">
+            <div>
+              <p class="brand-type-specimen__row-title">Display &amp; headlines — Ufficio medium</p>
+              <p class="brand-type-specimen__headline">New ways of being</p>
+            </div>
+            <div>
+              <p class="brand-type-specimen__row-title">Body — DM Sans light</p>
+              <p class="brand-type-specimen__body">We design spaces around real human behaviour. Short sentences, restrained tone, parchment field.</p>
+            </div>
+            <div>
+              <p class="brand-type-specimen__row-title">Labels &amp; UI chrome — DM Mono uppercase</p>
+              <p class="brand-type-specimen__mono">Projects · Journal · Studio</p>
+            </div>
+            <p class="brand-type-specimen__charset">ABCDEFGHIJKLMNOPQRSTUVWXYZ · 0123456789 (Ufficio specimen)</p>
+          </div>
+          <div class="brand-type-specimen__meta">
+            <span>DM Sans — 300–500</span>
+            <span>DM Mono — 400–500</span>
+            <span>Ufficio — medium (500) web &amp; print</span>
+          </div>
+        </div>
+        <a href="#" class="brand-download">
+          <span class="brand-download__icon" aria-hidden="true">↓</span> Download font files (licensed)
+        </a>
+      </div>
+    </section>
+
+    <!-- 02 SOCIAL -->
+    <section class="brand-section" id="social">
+      <div class="brand-section__header">
+        <h2 class="brand-section__title">Social</h2>
+        <span class="brand-section__num">02</span>
+      </div>
+
+      <p class="brand-section__desc">Guidelines for maintaining consistency across social channels. The voice is warm, direct, and avoids jargon.</p>
+
+      <div class="brand-social-grid">
+        <div class="brand-social-card">
+          <h3 class="brand-social-card__title">Tone of voice</h3>
+          <p class="brand-social-card__body">Speak like a thoughtful colleague, not a brand. First person plural. Short sentences. No exclamation marks in captions.</p>
+          <div class="brand-social-card__do-dont">
+            <p class="brand-social-card__rule brand-social-card__rule--do">&ldquo;We&rsquo;re working on something new in Norwich.&rdquo;</p>
+            <p class="brand-social-card__rule brand-social-card__rule--dont">&ldquo;Exciting news!! We&rsquo;re THRILLED to announce&hellip;&rdquo;</p>
+          </div>
+        </div>
+
+        <div class="brand-social-card">
+          <h3 class="brand-social-card__title">Photography</h3>
+          <p class="brand-social-card__body">Natural light, real spaces, real people. No stock photography. Minimal editing — adjust exposure and white balance only.</p>
+          <div class="brand-social-card__do-dont">
+            <p class="brand-social-card__rule brand-social-card__rule--do">In-progress site shots, material close-ups, team on location</p>
+            <p class="brand-social-card__rule brand-social-card__rule--dont">Staged renders, heavy filters, drone shots for the sake of it</p>
+          </div>
+        </div>
+
+        <div class="brand-social-card">
+          <h3 class="brand-social-card__title">Profile &amp; avatars</h3>
+          <p class="brand-social-card__body">Use the square mark on a Parchment (<code>#FFF6EE</code>) background. No taglines in profile pictures.</p>
+          <div class="brand-social-card__do-dont">
+            <p class="brand-social-card__rule brand-social-card__rule--do">Square mark, page background colour, no border</p>
+            <p class="brand-social-card__rule brand-social-card__rule--dont">Full wordmark squeezed into a circle crop</p>
+          </div>
+        </div>
+
+        <div class="brand-social-card">
+          <h3 class="brand-social-card__title">Hashtags &amp; mentions</h3>
+          <p class="brand-social-card__body">Keep hashtags minimal and relevant. Maximum three per post. Place at the end, never inline.</p>
+          <div class="brand-social-card__do-dont">
+            <p class="brand-social-card__rule brand-social-card__rule--do">#people #architecture</p>
+            <p class="brand-social-card__rule brand-social-card__rule--dont">#interiordesign #designinspo #goals #inspo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 DOCUMENTS -->
+    <section class="brand-section" id="documents">
+      <div class="brand-section__header">
+        <h2 class="brand-section__title">Documents</h2>
+        <span class="brand-section__num">03</span>
+      </div>
+
+      <p class="brand-section__desc">Branded templates for day-to-day use. Duplicate before editing — never modify originals.</p>
+
+      <div class="brand-doc-grid">
+        <a href="images/brand/documents/files/presentation-deck.txt" download="PEOPLE-presentation-deck-placeholder.txt" class="brand-doc-card">
+          <div class="brand-doc-card__preview">
+            <img class="brand-doc-card__preview-img" src="images/brand/documents/previews/presentation-deck.svg" alt="Presentation deck preview" loading="lazy" width="800" height="600">
+            <span class="brand-doc-card__badge">Google Slides</span>
+          </div>
+          <div class="brand-doc-card__info">
+            <p class="brand-doc-card__title">Presentation Deck</p>
+            <p class="brand-doc-card__meta">16:9 · Client-facing</p>
+          </div>
+        </a>
+
+        <a href="images/brand/documents/files/proposal-template.txt" download="PEOPLE-proposal-template-placeholder.txt" class="brand-doc-card">
+          <div class="brand-doc-card__preview">
+            <img class="brand-doc-card__preview-img" src="images/brand/documents/previews/proposal-template.svg" alt="Proposal template preview" loading="lazy" width="800" height="600">
+            <span class="brand-doc-card__badge">Google Docs</span>
+          </div>
+          <div class="brand-doc-card__info">
+            <p class="brand-doc-card__title">Proposal Template</p>
+            <p class="brand-doc-card__meta">A4 · Letterhead</p>
+          </div>
+        </a>
+
+        <a href="images/brand/documents/files/invoice-template.txt" download="PEOPLE-invoice-template-placeholder.txt" class="brand-doc-card">
+          <div class="brand-doc-card__preview">
+            <img class="brand-doc-card__preview-img" src="images/brand/documents/previews/invoice-template.svg" alt="Invoice template preview" loading="lazy" width="800" height="600">
+            <span class="brand-doc-card__badge">Google Sheets</span>
+          </div>
+          <div class="brand-doc-card__info">
+            <p class="brand-doc-card__title">Invoice Template</p>
+            <p class="brand-doc-card__meta">A4 · Finance</p>
+          </div>
+        </a>
+
+        <a href="images/brand/documents/files/email-signature.txt" download="PEOPLE-email-signature-placeholder.txt" class="brand-doc-card">
+          <div class="brand-doc-card__preview">
+            <img class="brand-doc-card__preview-img" src="images/brand/documents/previews/email-signature.svg" alt="Email signature preview" loading="lazy" width="800" height="600">
+            <span class="brand-doc-card__badge">Google Docs</span>
+          </div>
+          <div class="brand-doc-card__info">
+            <p class="brand-doc-card__title">Email Signature</p>
+            <p class="brand-doc-card__meta">HTML · All staff</p>
+          </div>
+        </a>
+
+        <a href="images/brand/documents/files/social-templates.txt" download="PEOPLE-social-templates-placeholder.txt" class="brand-doc-card">
+          <div class="brand-doc-card__preview">
+            <img class="brand-doc-card__preview-img" src="images/brand/documents/previews/social-templates.svg" alt="Social templates preview" loading="lazy" width="800" height="600">
+            <span class="brand-doc-card__badge">Google Slides</span>
+          </div>
+          <div class="brand-doc-card__info">
+            <p class="brand-doc-card__title">Social Templates</p>
+            <p class="brand-doc-card__meta">1:1 + 9:16</p>
+          </div>
+        </a>
+
+        <a href="images/brand/documents/files/project-brief.txt" download="PEOPLE-project-brief-placeholder.txt" class="brand-doc-card">
+          <div class="brand-doc-card__preview">
+            <img class="brand-doc-card__preview-img" src="images/brand/documents/previews/project-brief.svg" alt="Project brief preview" loading="lazy" width="800" height="600">
+            <span class="brand-doc-card__badge">Google Docs</span>
+          </div>
+          <div class="brand-doc-card__info">
+            <p class="brand-doc-card__title">Project Brief</p>
+            <p class="brand-doc-card__meta">A4 · Internal</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer class="brand-footer">
+      <div class="brand-footer__inner">
+        <span>© PEOPLE</span>
+        <span>Internal use only</span>
+        <a href="index.html" class="brand-footer__link">Back to site</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

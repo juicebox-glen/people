@@ -1,0 +1,1 @@
+PEOPLE — Placeholder template file for the presentation deck (16:9). Replace this .txt with your exported asset, or update the link in brand.html to your Google Slides URL.

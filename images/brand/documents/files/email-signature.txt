@@ -1,0 +1,1 @@
+PEOPLE — Placeholder for the HTML email signature bundle. Replace with your .html snippet or .zip of assets; update brand.html link if hosted elsewhere.

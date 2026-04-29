@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-hidden="true">
+  <rect width="800" height="600" fill="#e8e4df"/>
+  <rect x="80" y="220" width="640" height="160" rx="8" fill="#fff" stroke="rgba(0,0,0,.1)"/>
+  <text x="120" y="288" fill="#000" opacity="0.65" font-family="system-ui,sans-serif" font-size="22" font-weight="600">PEOPLE</text>
+  <text x="120" y="328" fill="#000" opacity="0.35" font-family="system-ui,sans-serif" font-size="13">project@people-architecture.com</text>
+  <text x="400" y="520" fill="#000" opacity="0.35" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">Email signature � HTML block</text>
+</svg>

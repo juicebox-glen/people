@@ -1,0 +1,1 @@
+PEOPLE — Placeholder for the invoice spreadsheet template. Replace this file or point brand.html at your live Google Sheet when ready.
