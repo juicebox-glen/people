@@ -145,21 +145,13 @@
     .brand-sub__label {
       font-family: var(--font-headline);
       font-weight: 500;
-      font-size: var(--type-overline-fs);
-      letter-spacing: var(--type-overline-ls);
+      font-size: clamp(1.125rem, 2.5vw, 1.625rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
       text-transform: uppercase;
-      opacity: 0.65;
-      margin-bottom: clamp(0.65rem, 1.5vw, 1rem);
+      opacity: 0.88;
+      margin-bottom: clamp(1rem, 2.25vw, 1.5rem);
       color: var(--ink);
-    }
-    .brand-sub__note {
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 300;
-      line-height: 1.55;
-      color: var(--brand-fg-muted);
-      max-width: 34rem;
-      margin-bottom: clamp(1rem, 2vw, 1.5rem);
     }
 
     .brand-logo-rows {
@@ -619,7 +611,6 @@
 
       <div class="brand-sub">
         <p class="brand-sub__label">Colour palette</p>
-        <p class="brand-sub__note"><strong>Quanström Studio</strong> palette — cream is the primary page field. Brown black anchors type. Terracotta and sage carry accent; studio cream adds warmth on panels. Light blue is for quiet borders and neutral UI. Use contrast ratios as you would for any brand colour.</p>
         <div class="brand-colors">
           <div class="brand-color">
             <div class="brand-color__swatch" style="background: #F4E4D5; border: 1px solid rgba(0,0,0,.06);"></div>
@@ -674,7 +665,6 @@
 
       <div class="brand-sub mb-0">
         <p class="brand-sub__label">Typography</p>
-        <p class="brand-sub__note"><strong>Ufficio</strong> (medium) leads display and titles. <strong>DM Sans</strong> carries body copy at light weight. <strong>DM Mono</strong> is for small caps navigation, labels, and technical lines. Do not substitute other families in external materials.</p>
         <div class="brand-type-specimen">
           <div class="brand-type-specimen__display">
             <div>
