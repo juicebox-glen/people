@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 720" role="img" aria-labelledby="brand-social-banner-title">
+  <title id="brand-social-banner-title">Instagram stickers banner placeholder — replace asset as needed</title>
+  <defs>
+    <linearGradient id="brand-social-banner-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF6EE"/>
+      <stop offset="1" stop-color="#E2C1A3" stop-opacity="0.45"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="720" fill="url(#brand-social-banner-grad)"/>
+  <text x="960" y="365" fill="#000" fill-opacity="0.22" font-family="system-ui, sans-serif" font-size="52" font-weight="600" text-anchor="middle">Instagram stickers</text>
+  <text x="960" y="418" fill="#000" fill-opacity="0.36" font-family="system-ui, sans-serif" font-size="18" font-weight="400" text-anchor="middle">Placeholder — swap for PNG/WebP or update img src</text>
+</svg>
